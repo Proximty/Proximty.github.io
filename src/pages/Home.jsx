@@ -1,6 +1,6 @@
 import { siteConfig } from "../siteConfig";
 import ProjectCard from "../components/ProjectCard";
-import projectData from "../data/projectdata.json";
+import projectData from "../data/projectData.json";
 
 export default function Home() {
   const projects = projectData.projects; 
