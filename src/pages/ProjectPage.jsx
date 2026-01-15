@@ -2,6 +2,9 @@
 import { useParams } from "react-router-dom";
 import ProjectHeader from "../components/projects/ProjectHeader";
 import projectData from "../data/projectData.json";
+import ProjectInfo from "../components/projects/ProjectInfo";
+import ProjectGallery from "../components/projects/ProjectGallery";
+import ProjectMechanics from "../components/projects/ProjectMechanics";
 
 export default function ProjectPage() {
     const { projectId } = useParams();
