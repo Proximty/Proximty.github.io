@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import ProjectHeader from "../components/projects/ProjectHeader";
-import projectData from "../data/projectdata.json";
+import projectData from "../data/projectData.json";
 
 export default function ProjectPage() {
     const { projectId } = useParams();
