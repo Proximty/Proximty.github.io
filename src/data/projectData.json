@@ -1,10 +1,10 @@
 {
   "projects": [
     {
-      "id": "asteroids-3d",
-      "title": "Asteroids 3D",
+      "id": "Buddy dventures",
+      "title": "Buddy Adventures",
       "tagline": "Een moderne 3D-remake van de arcade klassieker.",
-      "description": "Asteroids 3D is een moderne remake van de klassieke arcade game. Het doel was om physics-based movement te combineren met een minimalistische sci-fi stijl. Door veel playtesting vond ik de perfecte balans tussen thrust force, rotation speed en projectile velocity.\n\nTijdens het project focuste ik op iteratief werken en het snel ontwikkelen van speelbare prototypes. Daarbij heb ik veel geleerd over component-based architecture, het gebruik van ScriptableObjects voor game balancing en het implementeren van object pooling voor betere performance.",
+      "description":"dit is een moderne 3D platformer met een leuke feature, je gaat samen op avontuur met je buddies, de buddies worden bestuurd door een buddy sysyteem en je collect ze door de levels te spelen sterren te verzamelen en ze dan in de shop te halen. dit shop systeem was ingewikkeld te laten samen werken met het buddy systeem",
       "thumbnail": "https://picsum.photos/seed/asteroids/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": [
@@ -22,8 +22,8 @@
       "timeline": "2 weken",
       "mechanics": [
         {
-          "subtitle": "Movement System",
-          "description": "De speler gebruikt thrust-based movement en smooth rotation, net als klassieke arcade shooters. In plaats van directe positie updates werkt alles met physics forces, wat zorgt voor natuurlijk momentum en inertia. Ook implementeerde ik screen-wrap waarbij je aan de ene kant verdwijnt en aan de andere kant verschijnt.",
+          "subtitle": "buddy systeem",
+          "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
           "image": "https://picsum.photos/seed/e1/1200/800",
           "code": "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
         },
