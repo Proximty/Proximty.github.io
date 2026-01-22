@@ -16,6 +16,17 @@ export default function ProjectHeader({ project }) {
         <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md mb-1">{project.title}</h1>
         <p className="text-base text-gray-300 max-w-xl drop-shadow-sm font-medium">{project.tagline}</p>
       </div>
+        <script>
+         const circle = document.getElementById("circle");
+
+          document.addEventListener("mousemove", (e) = 
+         circle.style.transform = `translate(${e.clientX / 20}px, ${e.clientY / 20}px)`;
+  );
+</script>
+<section id="banner" class="relative h-[70vh] bg-indigo-600 overflow-hidden">
+  <div id="circle"
+       class="absolute w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
+</section>
     </div>
   );
 }
