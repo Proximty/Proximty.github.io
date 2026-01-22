@@ -3,18 +3,30 @@ import { siteConfig } from "../siteConfig";
 import ProjectCard from "../components/ProjectCard";
 import projectData from "../data/projectData.json";
 import Avatar from "../components/Avatar";
+import { useState } from "react";
+import Avatar3D from "../components/Avatar3D";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useLoader } from "@react-three/fiber";
 
 export default function Home() {
   const [accent, setAccent] = useState("#00ffff");
   const projects = projectData.projects;
 
+
+  // Laad GLTF model van MesyIA
+  const model = useLoader(GLTFLoader, "/mesyIA-avatar.glb"); // pad naar je 3D model
+
   return (
+    
     <section
       className="relative min-h-screen px-4 py-24 overflow-hidden transition-colors duration-500"
       style={{
         background: `radial-gradient(circle at 30% 30%, #1e1e2f, #0a0a0f)`,
       }}
     >
+       <div className="flex justify-center items-center min-h-screen bg-black">
+      <Avatar3D modelUrl={model.scene} />
+    </div>
       {/* Interactieve neon grid */}
       <div
         className="absolute inset-0 opacity-20 transition-all duration-500"
