@@ -47,3 +47,40 @@ body {
   border-radius: 999px;
   font-weight: 500;
 }
+.glitch {
+  position: relative;
+  text-shadow: 2px 0 cyan, -2px 0 magenta;
+}
+
+.glitch span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+  clip-path: inset(0 0 0 0);
+}
+
+.glitch span:first-child {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+.glitch span:last-child {
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% { clip-path: inset(0 0 85% 0); transform: translate(-2px, -2px); }
+  100% { clip-path: inset(10% 0 75% 0); transform: translate(2px, 2px); }
+}
+
+@keyframes glitchBottom {
+  0% { clip-path: inset(80% 0 0 0); transform: translate(2px, 2px); }
+  100% { clip-path: inset(90% 0 10% 0); transform: translate(-2px, -2px); }
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.3; }
+}
+.animate-[flicker_0s_infinite] { animation: flicker 0.5s infinite; }
+.animate-[flicker_0s_infinite] { animation: flicker 0.4s infinite; }
+.animate-[flicker_0s_infinite] { animation: flicker 0.6s infinite; }
