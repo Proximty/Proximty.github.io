@@ -1,28 +1,41 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stage } from "@react-three/drei";
+// src/components/Avatar.jsx
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Suspense, useRef } from "react";
 
-export default function Avatar3D({ modelUrl }) {
+function Model({ accent }) {
+  const ref = useRef();
+  const gltf = useGLTF("/Avatar.glb"); // GLB in public
+
+  useFrame(() => {
+    if (ref.current) ref.current.rotation.y += 0.005; // langzaam draaien
+  });
+
+  return <primitive ref={ref} object={gltf.scene} scale={1.8} />; // iets kleiner zodat het past
+}
+
+export default function Avatar({ accent }) {
   return (
-    <div className="w-80 h-80 mx-auto">
-      <Canvas camera={{ position: [0, 1, 3], fov: 50 }}>
-        {/* Scene lighting */}
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} intensity={1} />
+    <Canvas
+      style={{ width: 400, height: 400 }}
+      camera={{ position: [0, 1, 7], fov: 45 }} // veel verder weg = sterk uitgezoomd
+    >
+      {/* Lichten */}
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[5, 5, 7]} intensity={1} color={accent} />
+      <pointLight position={[0, 2, 7]} intensity={0.5} color={accent} />
 
-        {/* Model */}
-        <Stage environment="city" intensity={0.6}>
-          <primitive object={modelUrl} />
-        </Stage>
+      <Suspense fallback={null}>
+        <Model accent={accent} />
+      </Suspense>
 
-        {/* Interactieve controls */}
-        <OrbitControls
-          enableZoom={true}
-          enablePan={false}
-          rotateSpeed={0.5}
-          autoRotate={true}
-          autoRotateSpeed={1}
-        />
-      </Canvas>
-    </div>
+      <OrbitControls
+        enableZoom={true}
+        enablePan={false}
+        maxPolarAngle={Math.PI / 2.2}
+        minDistance={5}
+        maxDistance={10} // zoom limieten aangepast
+      />
+    </Canvas>
   );
 }

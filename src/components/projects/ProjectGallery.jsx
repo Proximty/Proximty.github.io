@@ -4,16 +4,13 @@ import { ChevronLeft, ChevronRight } from "../icons/icons.jsx";
 export default function ProjectGallery({ project }) {
   const { screenshots, youtube } = project;
 
-  // Combineer video (als eerste) en screenshots in één array
   const slides = [
     ...(youtube ? [{ type: "video", src: youtube }] : []),
     ...screenshots.map((s) => ({ type: "image", src: s })),
   ];
 
-  // Track huidige slide
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Navigatie functies
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
@@ -23,13 +20,13 @@ export default function ProjectGallery({ project }) {
   };
 
   return (
-    <div className="mb-4 mx-4">
-      <h2 className="text-xl font-semibold text-(--text)">Gallery</h2>
+    <div className="mb-6 mx-4">
+      <h2 className="text-2xl font-extrabold text-neon-pink drop-shadow-neon">Gallery</h2>
 
       {slides.length > 0 && (
-        <div className="relative group mt-4">
+        <div className="relative group mt-6">
           {/* Slide Container */}
-          <div className="overflow-hidden bg-(--surface) aspect-video">
+          <div className="overflow-hidden bg-black/90 rounded-xl aspect-video border-4 border-neon-blue shadow-neon">
             {/* Video Slide */}
             {slides[currentIndex].type === "video" && (
               <iframe
@@ -45,7 +42,7 @@ export default function ProjectGallery({ project }) {
               <img
                 src={slides[currentIndex].src}
                 alt={`Slide ${currentIndex + 1}`}
-                className="w-full h-full object-cover cursor-pointer"
+                className="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
                 onClick={() => window.open(slides[currentIndex].src, "_blank")}
               />
             )}
@@ -57,7 +54,8 @@ export default function ProjectGallery({ project }) {
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full 
-                           bg-black/50 text-white hover:bg-black/70 transition-colors"
+                           bg-neon-purple/70 text-white hover:bg-neon-purple/90 shadow-neon 
+                           transition-all duration-300"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -65,21 +63,22 @@ export default function ProjectGallery({ project }) {
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full 
-                           bg-black/50 text-white hover:bg-black/70 transition-colors"
+                           bg-neon-purple/70 text-white hover:bg-neon-purple/90 shadow-neon 
+                           transition-all duration-300"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
-              {/* Dots indicator */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {/* Dots Indicator */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentIndex 
-                        ? "bg-white w-4" 
-                        : "bg-white/50 hover:bg-white/80"
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      idx === currentIndex
+                        ? "bg-neon-pink shadow-neon-glow w-5 h-5"
+                        : "bg-neon-cyan/60 hover:bg-neon-cyan/90"
                     }`}
                   />
                 ))}
