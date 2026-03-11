@@ -3,68 +3,57 @@ import { Link, useLocation } from "react-router-dom";
 export default function Header() {
   const location = useLocation();
 
-  //Helper functie om te checken of een link actief is
   const isActive = (path) => {
-    if (path === "/") {
-      return location.pathname === "/" || location.pathname.startsWith("/projects");
-    }
+    if (path === "/") return location.pathname === "/" || location.pathname.startsWith("/projects");
     return location.pathname.startsWith(path);
   };
 
-  //Scroll naar boven bij navigatie
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  const scrollToTop = () => window.scrollTo(0, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor)">
+    <header
+      className="sticky top-0 z-50 border-b"
+      style={{
+        background: 'rgba(19, 17, 28, 0.75)',
+        backdropFilter: 'blur(16px)',
+        borderColor: 'var(--bordercolor)',
+      }}
+    >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo / Site naam */}
-        <Link 
-          to="/" 
+        {/* Logo */}
+        <Link
+          to="/"
           onClick={scrollToTop}
-          className="text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity"
+          className="text-xl font-extrabold gradient-text hover:opacity-80 transition-opacity tracking-tight"
         >
-          Portfolio
+          Portfolio ✦
         </Link>
 
-        {/* Navigatie links */}
+        {/* Nav links */}
         <div className="flex gap-6">
-          <Link
-            to="/"
-            onClick={scrollToTop}
-            className={`transition-colors ${
-              isActive("/") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
-            }`}
-          >
-            Projects
-          </Link>
-
-          <Link
-            to="/about"
-            onClick={scrollToTop}
-            className={`transition-colors ${
-              isActive("/about") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
-            }`}
-          >
-            Over Mij
-          </Link>
-
-          <Link
-            to="/contact"
-            onClick={scrollToTop}
-            className={`transition-colors ${
-              isActive("/contact") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
-            }`}
-          >
-            Contact
-          </Link>
+          {[
+            { to: "/",       label: "Projecten" },
+            { to: "/about",  label: "Over mij"  },
+            { to: "/contact",label: "Contact"    },
+          ].map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={scrollToTop}
+              className="relative text-sm font-semibold transition-colors group"
+              style={{ color: isActive(to) ? 'var(--accent)' : 'var(--muted)' }}
+            >
+              {label}
+              {/* Active indicator */}
+              <span
+                className="absolute -bottom-1 left-0 h-0.5 rounded transition-all duration-300"
+                style={{
+                  width: isActive(to) ? '100%' : '0%',
+                  background: 'linear-gradient(90deg, var(--accent), var(--accent-2))',
+                }}
+              />
+            </Link>
+          ))}
         </div>
       </nav>
     </header>
