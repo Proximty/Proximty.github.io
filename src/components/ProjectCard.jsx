@@ -3,21 +3,21 @@ import { useState } from "react";
 
 export default function ProjectCard({ project, setAccent }) {
   const rarityColors = {
-    common: "#00ffff",
-    rare: "#0066ff",
-    epic: "#a855f7",
-    legendary: "#facc15",
+    common: "#ff80ab", // Pink
+    rare: "#b388ff", // Purple
+    epic: "#ffb74d", // Orange/Gold
+    legendary: "#ffd54f", // Yellow
   };
 
   const [hover, setHover] = useState(false);
-  const color = rarityColors[project.rarity] || "#00ffff";
+  const color = rarityColors[project.rarity] || "#ff80ab";
 
   // Emoji per rarity
   const rarityEmoji = {
-    common: "⭐",
-    rare: "💎",
-    epic: "🔮",
-    legendary: "⚡",
+    common: "🌸",
+    rare: "🦄",
+    epic: "✨",
+    legendary: "👑",
   };
 
   return (
@@ -29,27 +29,30 @@ export default function ProjectCard({ project, setAccent }) {
       }}
       onMouseLeave={() => {
         setHover(false);
-        setAccent("#00ffff");
+        setAccent("#ff4081");
       }}
-      className="group relative block rounded-lg overflow-hidden bg-black border transition-all duration-300"
+      className="group relative block rounded-2xl overflow-hidden bg-white border-4 transition-all duration-300"
       style={{
         borderColor: color,
-        boxShadow: hover ? `0 0 25px ${color}77` : `0 0 10px ${color}33`,
-        transform: hover ? "scale(1.05) rotateX(2deg) rotateY(2deg)" : "scale(1)",
-        transition: "all 0.3s ease",
+        boxShadow: hover ? `0 10px 25px ${color}66` : `0 4px 10px ${color}33`,
+        transform: hover ? "scale(1.03) translateY(-5px)" : "scale(1)",
+        transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
       }}
     >
       {/* Glow + sparkles */}
       {hover && (
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(5)].map((_, i) => (
+        <div className="absolute inset-0 pointer-events-none z-20">
+          {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="w-1 h-1 rounded-full bg-white animate-pulse absolute"
+              className="w-2 h-2 rounded-full absolute mix-blend-screen"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                opacity: 0.6,
+                opacity: 0.8,
+                backgroundColor: color,
+                boxShadow: `0 0 10px ${color}, 0 0 20px white`,
+                animation: `flicker ${Math.random() * 0.5 + 0.5}s infinite alternate`
               }}
             />
           ))}
@@ -57,44 +60,43 @@ export default function ProjectCard({ project, setAccent }) {
       )}
 
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden border-b-4" style={{ borderColor: color }}>
         <img
           src={project.thumbnail}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div
-          className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-white/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${
             hover ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="font-mono text-sm tracking-widest" style={{ color }}>
-            VIEW PROJECT →
+          <span className="font-main font-bold text-lg tracking-wide px-4 py-2 bg-white rounded-full shadow-md" style={{ color }}>
+            ONTDEK MAGIE ✨
           </span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-4 relative z-10">
+      <div className="p-5 relative z-10 bg-pink-50/30">
         <h3
-          className="text-lg font-bold mb-1 font-mono transition-colors duration-300 flex items-center gap-1"
+          className="text-xl font-bold mb-2 font-main transition-colors duration-300 flex items-center gap-2"
           style={{ color }}
         >
-          {project.title} <span>{rarityEmoji[project.rarity]}</span>
+          {project.title} <span className="text-2xl">{rarityEmoji[project.rarity]}</span>
         </h3>
-        <p className="text-sm text-cyan-400 line-clamp-2">{project.tagline}</p>
+        <p className="text-sm text-purple-700 line-clamp-2 font-medium">{project.tagline}</p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-3">
+        <div className="flex flex-wrap gap-2 mt-4">
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-1 border rounded font-mono transition-all duration-300"
+              className="text-xs px-3 py-1.5 rounded-full font-main font-bold transition-all duration-300"
               style={{
-                borderColor: color,
-                color,
-                backgroundColor: hover ? `${color}22` : "transparent",
-                textShadow: hover ? `0 0 3px ${color}` : "none",
+                color: "white",
+                backgroundColor: color,
+                boxShadow: hover ? `0 4px 10px ${color}66` : "none",
               }}
             >
               {tag}
@@ -104,6 +106,4 @@ export default function ProjectCard({ project, setAccent }) {
       </div>
     </Link>
   );
-       
-
 }

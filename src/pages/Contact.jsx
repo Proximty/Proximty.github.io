@@ -3,48 +3,52 @@ import { siteConfig } from "../siteConfig";
 import { GitHub, LinkedIn, Itch, Envelope, ChevronRight } from "../components/icons/icons.jsx";
 
 export default function Contact() {
-  const [accent, setAccent] = useState("#00ffff");
+  const [accent, setAccent] = useState("#ff4081"); // Pink default
 
   const socialLinks = [
-    { name: "GitHub", url: siteConfig.socials.github, description: "Bekijk mijn code en projecten", icon: <GitHub className="w-8 h-8" /> },
-    { name: "LinkedIn", url: siteConfig.socials.linkedin, description: "Connect met mij", icon: <LinkedIn className="w-8 h-8" /> },
-    { name: "Itch.io", url: siteConfig.socials.itch, description: "Speel mijn games", icon: <Itch className="w-8 h-8" /> },
+    { name: "GitHub", url: siteConfig.socials.github, description: "Bekijk mijn magische code", icon: <GitHub className="w-8 h-8" /> },
+    { name: "LinkedIn", url: siteConfig.socials.linkedin, description: "Wordt vrienden met mij", icon: <LinkedIn className="w-8 h-8" /> },
+    { name: "Itch.io", url: siteConfig.socials.itch, description: "Speel mijn avonturen", icon: <Itch className="w-8 h-8" /> },
   ];
 
   return (
-    <section className="relative py-12 px-4 overflow-hidden min-h-screen bg-black">
-      {/* Neon grid achtergrond */}
+    <section className="relative py-12 px-4 overflow-hidden min-h-screen"
+             style={{ background: "radial-gradient(circle at 50% 0%, #ffe6f2, #fff0f5)" }}>
+      {/* Decorative magical dots/sparkles achtergrond */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-40 mix-blend-overlay"
         style={{
           backgroundImage: `
-            linear-gradient(to right, ${accent}33 1px, transparent 1px),
-            linear-gradient(to bottom, ${accent}33 1px, transparent 1px)
+            radial-gradient(${accent} 3px, transparent 3px),
+            radial-gradient(${accent} 3px, transparent 3px)
           `,
-          backgroundSize: "40px 40px",
+          backgroundSize: "80px 80px",
+          backgroundPosition: "0 0, 40px 40px",
         }}
       />
 
       {/* Ambient glow */}
       <div
-        className="absolute inset-0 blur-3xl opacity-20"
-        style={{ backgroundColor: accent }}
+        className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-300 rounded-full blur-[100px] opacity-30 mix-blend-multiply"
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-300 rounded-full blur-[100px] opacity-30 mix-blend-multiply"
       />
 
-      <div className="relative z-10 container mx-auto max-w-5xl flex flex-col gap-12">
+      <div className="relative z-10 container mx-auto max-w-5xl flex flex-col gap-12 mt-10">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-white/60 backdrop-blur-sm p-8 rounded-3xl border-4 border-pink-200 inline-block mx-auto shadow-sm">
           <h1
-            className="text-5xl font-bold mb-4 font-mono glitch"
+            className="text-5xl font-bold mb-4 font-main drop-shadow-sm transition-colors duration-500"
             style={{ color: accent }}
-            onMouseEnter={() => setAccent("#ff00ff")}
-            onMouseLeave={() => setAccent("#00ffff")}
+            onMouseEnter={() => setAccent("#ab47bc")} // Purple
+            onMouseLeave={() => setAccent("#ff4081")} // Pink
           >
-            Contact
+            Stuur een briefje! 💌
           </h1>
-          <p className="text-xl text-cyan-300 max-w-2xl mx-auto">
-            Interesse in samenwerking of gewoon een vraag? Neem gerust contact op!
+          <p className="text-xl text-purple-700 max-w-2xl mx-auto font-medium">
+            Interesse in een magische samenwerking of gewoon een vraag? Laat van je horen!
           </p>
         </div>
 
@@ -53,36 +57,39 @@ export default function Contact() {
 
           {/* Email CTA */}
           <div
-            className="lg:flex-1 bg-black/80 rounded-lg border border-cyan-500 p-8 flex flex-col justify-center
-                       hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] transition-all duration-300"
-            onMouseEnter={() => setAccent("#00ffff")}
-            onMouseLeave={() => setAccent("#ff00ff")}
+            className="lg:flex-1 bg-white rounded-3xl border-4 border-pink-300 p-10 flex flex-col justify-center
+                       shadow-xl transform hover:-translate-y-2 transition-all duration-300 relative overflow-hidden group"
+            onMouseEnter={() => setAccent("#ff4081")}
+            onMouseLeave={() => setAccent("#ab47bc")}
           >
-            <div className="mb-6 text-center lg:text-left">
-              <div className="w-16 h-16 mx-auto lg:mx-0 mb-4 rounded-full bg-cyan-500/20
-                              flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,255,255,0.3)]
-                              animate-pulse">
-                <Envelope className="w-8 h-8" />
+             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                 <Envelope className="w-32 h-32 text-pink-500" />
+             </div>
+            <div className="mb-8 text-center lg:text-left relative z-10">
+              <div className="w-20 h-20 mx-auto lg:mx-0 mb-6 rounded-full bg-pink-100 border-4 border-pink-200
+                              flex items-center justify-center text-pink-500 shadow-md group-hover:scale-110 transition-transform">
+                <Envelope className="w-10 h-10" />
               </div>
-              <h2 className="text-2xl font-bold text-cyan-300 mb-2">Direct contact</h2>
-              <p className="text-cyan-400 mb-6">
-                Stuur me een email en ik reageer zo snel mogelijk.
+              <h2 className="text-3xl font-bold text-pink-600 mb-3 font-main">Vriendschapspost</h2>
+              <p className="text-gray-600 text-lg font-medium mb-8">
+                Stuur me een email via pegasus-post en ik reageer sneller dan Rainbow Dash! 🌈
               </p>
             </div>
             <a
               href={`mailto:${siteConfig.socials.email}`}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-500
-                         text-black rounded-lg font-semibold shadow-[0_0_20px_rgba(0,255,255,0.5)]
-                         hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transition-all duration-300"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-400 to-purple-400
+                         text-white rounded-full font-bold text-xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 relative z-10"
             >
-              <Envelope className="w-5 h-5" />
+              <Envelope className="w-6 h-6" />
               {siteConfig.socials.email}
             </a>
           </div>
 
           {/* Social Links */}
-          <div className="lg:flex-1 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-cyan-300 mb-2 font-mono">Vind me online</h2>
+          <div className="lg:flex-1 flex flex-col gap-5">
+            <h2 className="text-2xl font-bold text-purple-600 mb-2 font-main bg-white/60 inline-block px-4 py-1 rounded-full shadow-sm text-center lg:text-left">
+              Vind me online 🌐
+            </h2>
 
             {socialLinks.map((social) => (
               <a
@@ -90,32 +97,33 @@ export default function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() => setAccent("#facc15")}
-                onMouseLeave={() => setAccent("#00ffff")}
-                className="group p-4 bg-black/80 rounded-lg border border-cyan-500
-                           flex items-center gap-4 hover:shadow-[0_0_25px_rgba(250,204,21,0.5)]
-                           transition-all duration-300"
+                onMouseEnter={() => setAccent("#ffd54f")} // Yellow
+                onMouseLeave={() => setAccent("#ff4081")}
+                className="group p-5 bg-white rounded-2xl border-4 border-purple-200
+                           flex items-center gap-5 hover:border-yellow-400 hover:shadow-lg
+                           transform hover:-translate-x-2 transition-all duration-300"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 flex-shrink-0 rounded-full bg-cyan-500/10
-                                flex items-center justify-center text-cyan-300
-                                group-hover:text-yellow-400 group-hover:bg-yellow-400/20
-                                shadow-[0_0_10px_rgba(0,255,255,0.2)]
-                                transition-all duration-300">
+                <div className="w-14 h-14 flex-shrink-0 rounded-full bg-purple-100 border-2 border-purple-200
+                                flex items-center justify-center text-purple-500
+                                group-hover:text-yellow-500 group-hover:bg-yellow-100 group-hover:border-yellow-300
+                                shadow-sm transition-all duration-300 group-hover:rotate-12">
                   {social.icon}
                 </div>
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-cyan-300 group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-xl font-bold text-purple-600 group-hover:text-yellow-600 transition-colors font-main">
                     {social.name}
                   </h3>
-                  <p className="text-sm text-cyan-400">{social.description}</p>
+                  <p className="text-md text-gray-500 font-medium">{social.description}</p>
                 </div>
 
                 {/* Arrow */}
-                <ChevronRight className="w-5 h-5 text-cyan-400 group-hover:text-yellow-400
-                                        group-hover:translate-x-1 transition-all" />
+                <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center group-hover:bg-yellow-100 transition-colors">
+                  <ChevronRight className="w-6 h-6 text-pink-400 group-hover:text-yellow-500
+                                          group-hover:translate-x-1 transition-all" />
+                </div>
               </a>
             ))}
           </div>

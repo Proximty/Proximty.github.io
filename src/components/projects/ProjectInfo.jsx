@@ -8,22 +8,22 @@ export default function ProjectInfo({ project }) {
         {/* DESCRIPTION PANEL */}
         <div className="
           md:col-span-2 space-y-4
-          bg-black/40 backdrop-blur-md
-          border border-cyan-500/30
-          rounded-xl p-6
-          shadow-[0_0_30px_rgba(34,211,238,0.15)]
+          bg-white
+          border-4 border-pink-200
+          rounded-3xl p-8
+          shadow-lg
         ">
           <h2 className="
-            text-xl font-bold tracking-widest text-cyan-300
-            drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]
+            text-2xl font-bold tracking-widest text-pink-500 font-main
+            mb-4 flex items-center gap-2
           ">
-            OVER DIT PROJECT
+            <span>✨</span> OVER DIT PROJECT <span>✨</span>
           </h2>
 
           {paragraphs.map((text, i) => (
             <p
               key={i}
-              className="text-sm md:text-base leading-relaxed text-cyan-100/80"
+              className="text-base md:text-lg leading-relaxed text-gray-700 font-medium"
             >
               {text}
             </p>
@@ -33,43 +33,43 @@ export default function ProjectInfo({ project }) {
         {/* SIDEBAR / HUD */}
         <div className="
           h-fit md:self-start
-          bg-black/50 backdrop-blur-md
-          border border-purple-500/30
-          rounded-xl p-6
-          shadow-[0_0_30px_rgba(168,85,247,0.2)]
+          bg-pink-50
+          border-4 border-purple-200
+          rounded-3xl p-8
+          shadow-lg
         ">
           <h3 className="
-            text-lg font-bold tracking-widest mb-4
-            text-purple-300
-            border-b border-purple-500/30 pb-2
-            drop-shadow-[0_0_6px_rgba(168,85,247,0.8)]
+            text-xl font-bold tracking-widest mb-6
+            text-purple-600 font-main
+            border-b-4 border-purple-200 pb-3
+            text-center
           ">
-            DETAILS
+            MAGISCHE DETAILS
           </h3>
 
-          <ul className="text-sm space-y-3 text-purple-100/80">
-            <li className="flex justify-between border-b border-purple-500/20 pb-1">
-              <span className="text-purple-300 font-medium">ROL</span>
+          <ul className="text-base space-y-4 text-gray-700 font-medium">
+            <li className="flex justify-between border-b-2 border-pink-100 pb-2 items-center">
+              <span className="text-pink-500 font-bold bg-pink-100 px-2 py-0.5 rounded-md text-sm">ROL</span>
               <span>{project.projectRole}</span>
             </li>
 
-            <li className="flex justify-between border-b border-purple-500/20 pb-1">
-              <span className="text-purple-300 font-medium">TIJDLIJN</span>
+            <li className="flex justify-between border-b-2 border-pink-100 pb-2 items-center">
+              <span className="text-pink-500 font-bold bg-pink-100 px-2 py-0.5 rounded-md text-sm">TIJDLIJN</span>
               <span>{project.timeline}</span>
             </li>
 
-            <li className="space-y-2">
-              <span className="text-purple-300 font-medium block">TAGS</span>
+            <li className="space-y-3 pt-2">
+              <span className="text-purple-500 font-bold bg-purple-100 px-2 py-0.5 rounded-md text-sm block w-fit">TAGS</span>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
                     className="
-                      px-2 py-1 text-xs font-semibold
-                      rounded-md
-                      bg-cyan-500/10 text-cyan-300
-                      border border-cyan-400/30
-                      shadow-[0_0_6px_rgba(34,211,238,0.4)]
+                      px-3 py-1 text-sm font-bold font-main
+                      rounded-full
+                      bg-white text-purple-600
+                      border-2 border-purple-200
+                      shadow-sm hover:scale-105 transition-transform
                     "
                   >
                     {tag}
@@ -81,23 +81,23 @@ export default function ProjectInfo({ project }) {
 
           {/* ACTION BUTTONS */}
           {(project.git || project.itch) && (
-            <div className="mt-6 flex gap-3 justify-end">
+            <div className="mt-8 flex flex-col gap-3">
               {project.git && (
                 <a
                   href={project.git}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    px-4 py-2 text-sm font-semibold
-                    rounded-lg
-                    border border-cyan-400/40
-                    text-cyan-300
-                    hover:bg-cyan-400/10
-                    hover:shadow-[0_0_12px_rgba(34,211,238,0.8)]
-                    transition-all
+                    w-full text-center px-4 py-3 text-lg font-bold font-main
+                    rounded-full
+                    border-4 border-pink-300
+                    bg-white text-pink-500
+                    hover:bg-pink-50
+                    hover:scale-105
+                    transition-all shadow-sm
                   "
                 >
-                  GITHUB
+                  BEKIJK CODE 💖
                 </a>
               )}
 
@@ -107,15 +107,15 @@ export default function ProjectInfo({ project }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    px-4 py-2 text-sm font-semibold
-                    rounded-lg
-                    bg-purple-600/80 text-white
-                    hover:bg-purple-500
-                    hover:shadow-[0_0_16px_rgba(168,85,247,0.9)]
-                    transition-all
+                    w-full text-center px-4 py-3 text-lg font-bold font-main
+                    rounded-full
+                    bg-gradient-to-r from-purple-400 to-pink-400 text-white
+                    hover:from-purple-500 hover:to-pink-500
+                    hover:scale-105 hover:shadow-lg
+                    transition-all shadow-md
                   "
                 >
-                  ITCH.IO
+                  SPEEL NU 🎮
                 </a>
               )}
             </div>

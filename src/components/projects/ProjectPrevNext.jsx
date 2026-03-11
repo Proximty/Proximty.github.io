@@ -18,22 +18,22 @@ export default function ProjectPrevNext({ previous, next }) {
               title={`Vorige: ${previous.title}`}
               className="
                 pointer-events-auto
-                w-14 h-14 rounded-full
-                bg-black/60 backdrop-blur-md
-                border border-cyan-400/40
-                shadow-[0_0_25px_rgba(34,211,238,0.4)]
+                w-16 h-16 rounded-full
+                bg-white
+                border-4 border-pink-300
+                shadow-xl
                 flex items-center justify-center
                 transition-all duration-300
                 hover:scale-110
-                hover:shadow-[0_0_45px_rgba(34,211,238,0.9)]
+                hover:shadow-2xl hover:bg-pink-50
                 group
-                -ml-24
+                -ml-20
               "
             >
               <ArrowLeft
                 className="
-                  w-6 h-6 text-cyan-300
-                  group-hover:-translate-x-1 transition-transform
+                  w-8 h-8 text-pink-500
+                  group-hover:-translate-x-2 transition-transform
                 "
                 aria-hidden
               />
@@ -50,22 +50,22 @@ export default function ProjectPrevNext({ previous, next }) {
               title={`Volgende: ${next.title}`}
               className="
                 pointer-events-auto
-                w-14 h-14 rounded-full
-                bg-black/60 backdrop-blur-md
-                border border-purple-400/40
-                shadow-[0_0_25px_rgba(168,85,247,0.4)]
+                w-16 h-16 rounded-full
+                bg-white
+                border-4 border-purple-300
+                shadow-xl
                 flex items-center justify-center
                 transition-all duration-300
                 hover:scale-110
-                hover:shadow-[0_0_45px_rgba(168,85,247,0.9)]
+                hover:shadow-2xl hover:bg-purple-50
                 group
-                -mr-24
+                -mr-20
               "
             >
               <ArrowRight
                 className="
-                  w-6 h-6 text-purple-300
-                  group-hover:translate-x-1 transition-transform
+                  w-8 h-8 text-purple-500
+                  group-hover:translate-x-2 transition-transform
                 "
                 aria-hidden
               />
@@ -76,12 +76,12 @@ export default function ProjectPrevNext({ previous, next }) {
         </div>
       </div>
 
-      {/* FOOTER NAV – LEVEL SELECT STYLE */}
+      {/* FOOTER NAV – CUTE STYLE */}
       <nav className="
-        mt-20 mx-4 pt-8
-        border-t border-cyan-500/30
+        mt-24 mx-4 pt-10 pb-12
+        border-t-4 border-pink-200 border-dashed
       ">
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex items-center justify-between gap-6 max-w-5xl mx-auto">
 
           {/* PREVIOUS */}
           {previous ? (
@@ -90,24 +90,26 @@ export default function ProjectPrevNext({ previous, next }) {
               onClick={scrollToTop}
               className="
                 group flex items-center gap-4 max-w-[45%]
-                p-4 rounded-xl
-                bg-black/40 backdrop-blur-md
-                border border-cyan-400/30
-                hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]
+                p-5 rounded-3xl
+                bg-white
+                border-4 border-pink-200
+                hover:shadow-lg hover:border-pink-400 hover:-translate-y-1
                 transition-all
               "
             >
-              <ArrowLeft
-                className="
-                  w-5 h-5 text-cyan-300
-                  group-hover:-translate-x-1 transition-transform
-                "
-              />
+              <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0 group-hover:bg-pink-200 transition-colors">
+                <ArrowLeft
+                  className="
+                    w-6 h-6 text-pink-500
+                    group-hover:-translate-x-1 transition-transform
+                  "
+                />
+               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-xs uppercase tracking-widest text-cyan-400">
-                  Vorige Level
+                <span className="text-xs uppercase tracking-widest text-pink-400 font-bold font-main">
+                  Vorig Avontuur
                 </span>
-                <span className="font-semibold truncate text-cyan-200">
+                <span className="font-bold text-lg truncate text-gray-700 font-main">
                   {previous.title}
                 </span>
               </div>
@@ -123,27 +125,29 @@ export default function ProjectPrevNext({ previous, next }) {
               onClick={scrollToTop}
               className="
                 group flex items-center gap-4 max-w-[45%] ml-auto
-                p-4 rounded-xl
-                bg-black/40 backdrop-blur-md
-                border border-purple-400/30
-                hover:shadow-[0_0_25px_rgba(168,85,247,0.6)]
-                transition-all
+                p-5 rounded-3xl
+                bg-white
+                border-4 border-purple-200
+                hover:shadow-lg hover:border-purple-400 hover:-translate-y-1
+                transition-all text-right
               "
             >
-              <div className="flex flex-col min-w-0 text-right">
-                <span className="text-xs uppercase tracking-widest text-purple-400">
-                  Volgende Level
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className="text-xs uppercase tracking-widest text-purple-400 font-bold font-main">
+                  Volgend Avontuur
                 </span>
-                <span className="font-semibold truncate text-purple-200">
+                <span className="font-bold text-lg truncate text-gray-700 font-main">
                   {next.title}
                 </span>
               </div>
-              <ArrowRight
-                className="
-                  w-5 h-5 text-purple-300
-                  group-hover:translate-x-1 transition-transform
-                "
-              />
+               <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
+                 <ArrowRight
+                   className="
+                     w-6 h-6 text-purple-500
+                     group-hover:translate-x-1 transition-transform
+                   "
+                 />
+               </div>
             </Link>
           ) : (
             <div />

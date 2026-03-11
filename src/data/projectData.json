@@ -16,20 +16,21 @@
         "Unity",
         "C#",
         "3D",
-        "Physics"
+        "Physics",
+        "multiplayer"
       ],
       "projectRole": "Gameplay Programmer",
-      "timeline": "2 weken",
+      "timeline": "1 week",
       "mechanics": [
         {
-          "subtitle": "buddy systeem",
-          "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
+          "subtitle": "shop systeem",
+          "description": "dit systeem zorgt er voor dat je maar 1 keer een buddy kan krijgen en zijn aangewezen mechanic krijgt",
           "image": "https://picsum.photos/seed/e1/1200/800",
           "code": "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
         },
         {
-          "subtitle": "Asteroid Spawner",
-          "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
+          "subtitle": "unlock system",
+          "description": "De unlock zodat je kan dubbel jumpen. Dit kan der voor zorgen dat je zodra je de buddy hebt je kan dubble jumpen.",
           "image": "https://picsum.photos/seed/e2/1200/800",
           "code": "void SpawnAsteroid()\n{\n    Vector3 pos = Random.onUnitSphere * spawnRadius;\n    float size = Random.Range(0.5f, 2.5f);\n\n    GameObject ast = Instantiate(asteroidPrefab, pos, Random.rotation);\n    ast.transform.localScale = Vector3.one * size;\n\n    Rigidbody rb = ast.GetComponent<Rigidbody>();\n    rb.AddForce(Random.onUnitSphere * Random.Range(5,15), ForceMode.Impulse);\n}"
         }
@@ -53,8 +54,8 @@
       "tags": [
         "Unity",
         "C#",
-        "XR",
-        "VR"
+        "2D",
+        "touchscreen"
       ],
       "projectRole": "XR Interaction Designer",
       "timeline": "3 weken",

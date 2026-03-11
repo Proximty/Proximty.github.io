@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function ProjectMechanics({ project }) {
   if (!project.mechanics || project.mechanics.length === 0) return null;
@@ -7,53 +7,53 @@ export default function ProjectMechanics({ project }) {
   return (
     <div className="mx-4 mt-12">
       <h2 className="
-        text-xl font-bold mb-6 tracking-widest
-        text-cyan-300
-        drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]
+        text-2xl font-bold mb-8 tracking-widest text-center
+        text-purple-500 font-main flex justify-center items-center gap-2
       ">
-        CODE HIGHLIGHTS
+        <span>🪄</span> MAGISCHE CODE <span>🪄</span>
       </h2>
 
       {project.mechanics.map((m, i) => (
         <div
           key={i}
           className="
-            mb-10 p-6 rounded-xl
-            bg-black/50 backdrop-blur-md
-            border border-cyan-500/30
-            shadow-[0_0_35px_rgba(34,211,238,0.15)]
+            mb-10 p-8 rounded-3xl
+            bg-white
+            border-4 border-purple-200
+            shadow-lg
           "
         >
           {/* Title + Description */}
-          <div className="mb-4">
+          <div className="mb-6 text-center">
             <h3 className="
-              text-lg font-bold tracking-wide text-purple-300 mb-2
-              drop-shadow-[0_0_6px_rgba(168,85,247,0.8)]
+              text-2xl font-bold tracking-wide text-pink-500 mb-3 font-main
             ">
               {m.subtitle}
             </h3>
-            <p className="text-sm md:text-base text-cyan-100/80 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 font-medium leading-relaxed max-w-3xl mx-auto">
               {m.description}
             </p>
           </div>
 
           {/* Code + Preview */}
-          <div className="grid grid-cols-1 md:grid-cols-[65%_35%] gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6">
             
             {/* Code Block */}
             <div className="
-              h-64 overflow-auto rounded-lg
-              border border-cyan-400/30
-              shadow-[0_0_20px_rgba(34,211,238,0.25)]
+              bg-pink-50 overflow-hidden rounded-2xl
+              border-4 border-pink-200
+              shadow-inner relative
             ">
+             <div className="absolute top-0 left-0 right-0 h-4 bg-pink-200"></div> {/* Cute faux window top */}
               <SyntaxHighlighter
                 language="csharp"
-                style={vscDarkPlus}
+                style={oneLight}
                 customStyle={{
                   margin: 0,
-                  height: "100%",
-                  background: "rgba(0,0,0,0.85)",
-                  fontSize: "0.9rem",
+                  height: "280px", // Increased height slightly
+                  background: "transparent",
+                  fontSize: "0.95rem",
+                  padding: "1.5rem 1rem",
                 }}
                 showLineNumbers
               >
@@ -68,9 +68,9 @@ export default function ProjectMechanics({ project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  group relative h-64 rounded-lg overflow-hidden
-                  border border-purple-400/30
-                  shadow-[0_0_20px_rgba(168,85,247,0.25)]
+                  group relative h-[280px] rounded-2xl overflow-hidden
+                  border-4 border-purple-300
+                  shadow-md block
                 "
               >
                 <img
@@ -78,18 +78,19 @@ export default function ProjectMechanics({ project }) {
                   alt={m.subtitle}
                   className="
                     w-full h-full object-cover
-                    group-hover:scale-105 transition-transform duration-300
+                    group-hover:scale-110 transition-transform duration-500
                   "
                 />
 
                 {/* Hover overlay */}
                 <div className="
                   absolute inset-0 opacity-0 group-hover:opacity-100
-                  bg-black/50 flex items-center justify-center
-                  text-purple-300 text-sm tracking-widest
-                  transition-opacity
+                  bg-white/60 backdrop-blur-sm flex items-center justify-center
+                  transition-opacity duration-300
                 ">
-                  VIEW IN ENGINE
+                  <span className="bg-purple-500 text-white font-bold font-main px-6 py-3 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+                     BEKIJK IN ACTIE ✨
+                  </span>
                 </div>
               </a>
             )}

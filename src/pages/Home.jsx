@@ -5,46 +5,42 @@ import projectData from "../data/projectData.json";
 import { siteConfig } from "../siteConfig";
 import ProjectTimeline from "../components/TImeline";
 
-
-
-
 export default function Home() {
-  const [accent, setAccent] = useState("#00ffff");
+  const [accent, setAccent] = useState("#ff4081");
   const projects = projectData.projects;
 
   return (
     <section
       className="relative min-h-screen px-4 py-24 overflow-hidden"
       style={{
-        background: "radial-gradient(circle at 30% 30%, #1e1e2f, #0a0a0f)",
+        background: "radial-gradient(circle at 50% 50%, #ffe6f2, #ffb6c1)",
       }}
     >
-      {/* Neon grid */}
+      {/* Decorative magical dots/sparkles */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-40 mix-blend-overlay"
         style={{
           backgroundImage: `
-            linear-gradient(to right, ${accent}33 1px, transparent 1px),
-            linear-gradient(to bottom, ${accent}33 1px, transparent 1px)
+            radial-gradient(${accent} 2px, transparent 2px),
+            radial-gradient(${accent} 2px, transparent 2px)
           `,
-          backgroundSize: "40px 40px",
+          backgroundSize: "60px 60px",
+          backgroundPosition: "0 0, 30px 30px",
         }}
       />
 
       {/* Ambient glow */}
       <div
-        className="absolute inset-0 blur-3xl opacity-20"
+        className="absolute inset-0 blur-3xl opacity-30"
         style={{ backgroundColor: accent }}
       />
 
-      {/* HUD */}
-      <div className="absolute top-6 left-6 text-xs font-mono text-cyan-400">
-        <p>ENGINE: UNITY</p>
-        <p>MODE: VR / XR</p>
-        <p>STATUS: ONLINE</p>
+      {/* Cute Overlay Text */}
+      <div className="absolute top-6 left-6 text-sm font-bold text-pink-500 bg-white/50 px-3 py-1 rounded-full shadow-sm border border-pink-200 float">
+        <p>✨ MAGIC: 100%</p>
       </div>
-      <div className="absolute bottom-6 right-6 text-xs font-mono text-cyan-400">
-        <p>BUILD v1.0</p>
+      <div className="absolute bottom-6 right-6 text-sm font-bold text-pink-500 bg-white/50 px-3 py-1 rounded-full shadow-sm border border-pink-200 float" style={{animationDelay: '1.5s'}}>
+        <p>🐴 FRIENDSHIP IS MAGIC</p>
       </div>
 
       {/* Content */}
@@ -53,38 +49,44 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12 w-full">
           {/* Avatar */}
           <div
-            className="flex-shrink-0"
-            onMouseEnter={() => setAccent("#00ff88")}
-            onMouseLeave={() => setAccent("#00ffff")}
+            className="flex-shrink-0 cursor-pointer transition-transform hover:scale-105 hover:spin-crazy float"
+            onMouseEnter={() => setAccent("#ab47bc")} // Medium purple on hover
+            onMouseLeave={() => setAccent("#ff4081")} // Back to pink
           >
-            <Avatar accent={accent} />
+            <div className="bg-white rounded-full p-2 shadow-lg border-4 border-pink-300">
+              <Avatar accent={accent} />
+            </div>
           </div>
 
           {/* Foto */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 float" style={{animationDelay: '0.5s'}}>
             <img
-              src="/meine-foto.png" // zet je foto in public
+              src={siteConfig.aboutImage}
               alt="Mijn Foto"
-              className="w-64 h-64 object-cover rounded-xl border-4 border-cyan-400 shadow-lg"
+              className="w-64 h-64 object-cover rounded-full border-4 border-purple-400 shadow-xl"
             />
           </div>
         </div>
 
         {/* Naam / Rol / Tagline */}
         <h1
-          className="glitch text-5xl md:text-6xl font-bold mb-2 font-mono"
-          style={{ color: accent }}
+          className="float text-5xl md:text-6xl font-bold mb-4 font-main drop-shadow-md rainbow-text"
+          style={{ animationDelay: '1s' }}
         >
           {siteConfig.name}
         </h1>
-        <p className="text-cyan-300 tracking-widest mb-4 font-mono">
+        <p className="text-purple-700 tracking-wide font-medium text-xl mb-4 font-main bg-white/60 inline-block px-4 py-1 rounded-full shadow-sm">
           {siteConfig.role}
         </p>
-        <p className="text-cyan-400 max-w-xl mb-12 text-sm md:text-base">
+        <p className="text-purple-900 max-w-xl mb-12 text-lg md:text-xl font-medium bg-white/40 p-4 rounded-2xl shadow-sm border border-pink-100">
           {siteConfig.tagline}
         </p>
-         <ProjectTimeline projects={projects} />
-          </div>
+        
+        <div className="w-full max-w-4xl bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-pink-200 relative">
+          <div className="absolute -top-5 -left-5 text-4xl animate-bounce">🦄</div>
+          <ProjectTimeline projects={projects} />
+        </div>
+      </div>
     </section>
   );
 }

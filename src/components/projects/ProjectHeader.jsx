@@ -1,6 +1,6 @@
 export default function ProjectHeader({ project }) {
   return (
-    <div className="relative w-full mb-6 overflow-hidden rounded-xl">
+    <div className="relative w-full mb-6 overflow-hidden rounded-3xl border-4 border-pink-200">
       {/* Background image */}
       <img
         src={project.thumbnail}
@@ -8,29 +8,29 @@ export default function ProjectHeader({ project }) {
         className="w-full h-56 sm:h-72 object-cover scale-110"
       />
 
-      {/* Neon cinematic overlay */}
+      {/* Magic cinematic overlay */}
       <div className="absolute inset-0 bg-gradient-to-tr 
-        from-purple-900/80 via-black/70 to-cyan-900/80" />
+        from-pink-400/70 via-white/40 to-purple-400/70 mix-blend-hard-light" />
 
       {/* Vignette */}
-      <div className="absolute inset-0 shadow-[inset_0_0_140px_rgba(0,0,0,0.95)]" />
+      <div className="absolute inset-0 shadow-[inset_0_0_80px_rgba(255,105,180,0.4)]" />
 
-      {/* Subtle neon noise / scanline feel */}
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:100%_4px]" />
+      {/* Subtle sparkle noise */}
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(white_1px,transparent_1px)] bg-[size:20px_20px]" />
 
       {/* Content */}
-      <div className="absolute bottom-6 left-6 right-6">
+      <div className="absolute bottom-6 left-6 right-6 text-center">
         <h1 className="
-          text-4xl md:text-5xl font-extrabold tracking-widest text-cyan-300
-          drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]
+          text-4xl md:text-5xl font-extrabold tracking-widest text-white font-main
+          drop-shadow-md mb-2
         ">
           {project.title}
         </h1>
 
         <p className="
-          mt-2 max-w-xl text-sm md:text-base font-medium
-          text-purple-200
-          drop-shadow-[0_0_6px_rgba(168,85,247,0.6)]
+          mx-auto max-w-xl text-sm md:text-base font-bold
+          text-pink-100 bg-pink-500/50 backdrop-blur-sm px-4 py-1 rounded-full inline-block
+          drop-shadow-sm
         ">
           {project.tagline}
         </p>

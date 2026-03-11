@@ -17,13 +17,13 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor)">
+    <header className="sticky top-0 z-50 bg-(--surface) border-b-4 border-pink-300 shadow-sm">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo / Site naam */}
         <Link 
           to="/" 
           onClick={scrollToTop}
-          className="text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity"
+          className="text-2xl font-bold text-pink-500 hover:text-purple-500 transition-colors drop-shadow-sm font-main"
         >
           Portfolio
         </Link>
@@ -35,8 +35,8 @@ export default function Header() {
             onClick={scrollToTop}
             className={`transition-colors ${
               isActive("/") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
+                ? "text-pink-500 font-bold bg-pink-100 px-3 py-1 rounded-full" 
+                : "text-purple-600 hover:text-pink-400 hover:bg-pink-50 px-3 py-1 rounded-full"
             }`}
           >
             Projects
@@ -47,8 +47,8 @@ export default function Header() {
             onClick={scrollToTop}
             className={`transition-colors ${
               isActive("/about") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
+                ? "text-pink-500 font-bold bg-pink-100 px-3 py-1 rounded-full" 
+                : "text-purple-600 hover:text-pink-400 hover:bg-pink-50 px-3 py-1 rounded-full"
             }`}
           >
             Over Mij
@@ -59,8 +59,8 @@ export default function Header() {
             onClick={scrollToTop}
             className={`transition-colors ${
               isActive("/contact") 
-                ? "text-(--accent) font-semibold" 
-                : "text-(--muted) hover:text-(--text)"
+                ? "text-pink-500 font-bold bg-pink-100 px-3 py-1 rounded-full" 
+                : "text-purple-600 hover:text-pink-400 hover:bg-pink-50 px-3 py-1 rounded-full"
             }`}
           >
             Contact
