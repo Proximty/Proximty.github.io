@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
 
-const FLOWERS = ['🌸', '🌺', '🌼', '🌻', '🌷', '💐', '🌹', '🪷'];
+const FLOWERS = ['🌸', '🌺', '🌼', '🌻', '🌷', '💐', '🌹', '🪷', '🪴', '🌱', '🌿', '🍄', '✨', '🍃'];
 
 export default function FloatingFlowers() {
-  // Generate 20 flowers with random positions and animation params (stable via useMemo)
+  // Generate 45 flowers with random positions and animation params (stable via useMemo)
   const flowers = useMemo(() =>
-    Array.from({ length: 22 }, (_, i) => ({
+    Array.from({ length: 45 }, (_, i) => ({
       id: i,
       emoji: FLOWERS[i % FLOWERS.length],
-      left: `${5 + (i * 4.3) % 90}%`,
-      top: `${3 + (i * 7.1) % 92}%`,
-      size: 18 + (i % 5) * 7,
-      duration: 4 + (i % 5) * 1.4,
-      delay: (i * 0.4) % 6,
+      left: `${3 + (i * 7.7) % 94}%`,
+      top: `${2 + (i * 11.3) % 96}%`,
+      size: 16 + (i % 7) * 8,
+      duration: 3 + (i % 6) * 1.5,
+      delay: (i * 0.3) % 8,
       rotate: i % 2 === 0 ? 'flower-float-cw' : 'flower-float-ccw',
     })), []
   );

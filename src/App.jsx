@@ -13,7 +13,7 @@ export default function App() {
       {/* Floating flower decorations behind everything */}
       <FloatingFlowers />
 
-      <div className="min-h-screen flex flex-col bg-(--bg) text-(--text)" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="min-h-screen flex flex-col text-(--text)" style={{ position: 'relative', zIndex: 1 }}>
         <Header />
 
         <main className="flex-1 container mx-auto">

@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 
 // Petals that spawn on mouse move
-const PETALS = ['🌸', '🌺', '🌼', '🌷', '🪷'];
+const PETALS = ['🌸', '🌺', '🌼', '🌷', '🪷', '✨', '🦋', '🍃'];
 
 function spawnPetal(x, y) {
   const el = document.createElement('span');
   el.textContent = PETALS[Math.floor(Math.random() * PETALS.length)];
   const size = 14 + Math.random() * 10;
-  const angle = (Math.random() - 0.5) * 60;
-  const rise = 40 + Math.random() * 40;
+  const angle = (Math.random() - 0.5) * 80;
+  const rise = 50 + Math.random() * 60;
+  const drift = (Math.random() - 0.5) * 40;
   Object.assign(el.style, {
     position: 'fixed',
     left: x + 'px',
@@ -17,9 +18,10 @@ function spawnPetal(x, y) {
     pointerEvents: 'none',
     zIndex: '99998',
     transform: 'translate(-50%,-50%)',
-    animation: `petalFly 0.9s ease forwards`,
+    animation: `petalFly 1.2s ease forwards`,
     '--angle': angle + 'deg',
     '--rise': rise + 'px',
+    '--drift': drift + 'px',
     userSelect: 'none',
   });
   document.body.appendChild(el);
@@ -44,8 +46,8 @@ export default function Cursor() {
       style.id = 'petal-style';
       style.textContent = `
         @keyframes petalFly {
-          0%   { opacity: 1; transform: translate(-50%,-50%) rotate(0deg) translateY(0); }
-          100% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle,20deg)) translateY(calc(-1 * var(--rise,40px))); }
+          0%   { opacity: 1; transform: translate(-50%,-50%) rotate(0deg) translate(0, 0) scale(1); }
+          100% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle,20deg)) translate(var(--drift,0px), calc(-1 * var(--rise,40px))) scale(0.6); }
         }
       `;
       document.head.appendChild(style);
@@ -62,9 +64,9 @@ export default function Cursor() {
         dotRef.current.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
       }
 
-      // Spawn a petal every ~120ms
+      // Spawn a petal every ~60ms
       const now = Date.now();
-      if (now - lastPetal.current > 120) {
+      if (now - lastPetal.current > 60) {
         lastPetal.current = now;
         spawnPetal(e.clientX, e.clientY);
       }
@@ -120,7 +122,7 @@ export default function Cursor() {
           width:  hovered ? '54px' : clicked ? '30px' : '40px',
           height: hovered ? '54px' : clicked ? '30px' : '40px',
           borderRadius: '50%',
-          border: `2.5px solid ${hovered ? '#f472b6' : '#a78bfa'}`,
+          border: `2.5px solid ${hovered ? '#f472b6' : '#d946ef'}`,
           backgroundColor: hovered ? 'rgba(244,114,182,0.1)' : 'transparent',
           transition: 'width .2s ease, height .2s ease, border-color .2s ease, background .2s ease',
           willChange: 'transform',

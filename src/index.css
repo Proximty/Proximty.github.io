@@ -6,16 +6,16 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  --bg: #13111c;
-  --surface: #1c192a;
-  --surface-2: #241f38;
+  --bg: #1d1829;
+  --surface: #262038;
+  --surface-2: #302847;
   --text: #f1eeff;
-  --muted: #9d97bb;
-  --accent: #a78bfa;
+  --muted: #a69ebd;
+  --accent: #d946ef;
   --accent-2: #f472b6;
-  --accent-3: #34d399;
-  --accent-text: #13111c;
-  --bordercolor: #2e2a42;
+  --accent-3: #10b981;
+  --accent-text: #1d1829;
+  --bordercolor: #3b3155;
 
   --radius-sm: 0.4rem;
   --radius-md: 0.85rem;
@@ -39,9 +39,9 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(167,139,250,0.13), transparent),
-    radial-gradient(ellipse 60% 50% at 90% 100%,  rgba(244,114,182,0.11), transparent),
-    radial-gradient(ellipse 50% 40% at 50% 50%,   rgba(52,211,153,0.07),  transparent);
+    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(217,70,239,0.18), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 100%,  rgba(244,114,182,0.15), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 50%,   rgba(16,185,129,0.08),  transparent);
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-main);
@@ -157,9 +157,9 @@ body {
   animation: float 7s ease-in-out infinite;
   pointer-events: none;
 }
-.orb-violet  { background: #a78bfa; animation-delay: 0s; }
+.orb-violet  { background: #d946ef; animation-delay: 0s; }
 .orb-pink    { background: #f472b6; animation-delay: 2.5s; }
-.orb-emerald { background: #34d399; animation-delay: 5s; }
+.orb-emerald { background: #10b981; animation-delay: 5s; }
 
 /* ─── Floating Flowers ─── */
 @keyframes flower-float-cw {
