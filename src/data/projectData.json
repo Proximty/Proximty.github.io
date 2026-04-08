@@ -25,13 +25,13 @@
           "subtitle": "buddy systeem",
           "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
           "image": "https://picsum.photos/seed/e1/1200/800",
-          "code": "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
+          "code": " private void Update(){BunnyCheck();}       public void BunnyCheck(){ if(boughtBuddy[0] == true){jumpCount = 2;} "
         },
         {
-          "subtitle": "Asteroid Spawner",
+          "subtitle": "Shop",
           "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
           "image": "https://picsum.photos/seed/e2/1200/800",
-          "code": "void SpawnAsteroid()\n{\n    Vector3 pos = Random.onUnitSphere * spawnRadius;\n    float size = Random.Range(0.5f, 2.5f);\n\n    GameObject ast = Instantiate(asteroidPrefab, pos, Random.rotation);\n    ast.transform.localScale = Vector3.one * size;\n\n    Rigidbody rb = ast.GetComponent<Rigidbody>();\n    rb.AddForce(Random.onUnitSphere * Random.Range(5,15), ForceMode.Impulse);\n}"
+          "code": " private void Update(){if (Ativeshop == false){selectBorder.transform.position = buddyimage[shopselect].transform.position;}"
         }
       ]
       ,
@@ -41,7 +41,7 @@
     {
       "id": "(not just) golddigers",
       "title": "(Not just) golddigers",
-      "tagline": "Een VR escape room met physics puzzels en interacties.",
+      "tagline": "een leuke graaf game voor mobile.",
       "description": "Deze XR escape room is ontwikkeld met Unity's XR Interaction Toolkit en plaatst spelers in een mysterieuze kamer vol interactieve puzzels. Elke puzzel kan op meerdere manieren opgelost worden, wat spelers de vrijheid geeft om creatief te denken.\n\nIk wilde onderzoeken hoe je natuurlijke interacties kunt bouwen met VR controllers waarbij physics-based interactions zorgen voor maximale immersion.\n\nHet project richtte zich op drie kernpijlers: natuurlijke object manipulatie, physics-based puzzels en environmental storytelling waarbij de ruimte zelf het verhaal vertelt.",
       "thumbnail": "https://picsum.photos/seed/xr/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -52,10 +52,7 @@
       ],
       "tags": [
         "Unity",
-        "C#",
-        "XR",
-        "VR"
-      ],
+        "C#"],
       "projectRole": "XR Interaction Designer",
       "timeline": "3 weken",
       "mechanics": [

@@ -14,7 +14,7 @@ export default function Header() {
     <header
       className="sticky top-0 z-50 border-b"
       style={{
-        background: 'rgba(19, 17, 28, 0.75)',
+        background: 'rgba(255, 255, 255, 0.75)',
         backdropFilter: 'blur(16px)',
         borderColor: 'var(--bordercolor)',
       }}

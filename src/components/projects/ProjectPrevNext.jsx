@@ -19,20 +19,20 @@ export default function ProjectPrevNext({ previous, next }) {
               className="
                 pointer-events-auto
                 w-14 h-14 rounded-full
-                bg-black/60 backdrop-blur-md
-                border border-cyan-400/40
-                shadow-[0_0_25px_rgba(34,211,238,0.4)]
+                bg-white/70 backdrop-blur-md
+                border border-pink-200
+                shadow-md
                 flex items-center justify-center
                 transition-all duration-300
                 hover:scale-110
-                hover:shadow-[0_0_45px_rgba(34,211,238,0.9)]
+                hover:shadow-lg
                 group
                 -ml-24
               "
             >
               <ArrowLeft
                 className="
-                  w-6 h-6 text-cyan-300
+                  w-6 h-6 text-pink-500
                   group-hover:-translate-x-1 transition-transform
                 "
                 aria-hidden
@@ -51,20 +51,20 @@ export default function ProjectPrevNext({ previous, next }) {
               className="
                 pointer-events-auto
                 w-14 h-14 rounded-full
-                bg-black/60 backdrop-blur-md
-                border border-purple-400/40
-                shadow-[0_0_25px_rgba(168,85,247,0.4)]
+                bg-white/70 backdrop-blur-md
+                border border-pink-200
+                shadow-md
                 flex items-center justify-center
                 transition-all duration-300
                 hover:scale-110
-                hover:shadow-[0_0_45px_rgba(168,85,247,0.9)]
+                hover:shadow-lg
                 group
                 -mr-24
               "
             >
               <ArrowRight
                 className="
-                  w-6 h-6 text-purple-300
+                  w-6 h-6 text-pink-500
                   group-hover:translate-x-1 transition-transform
                 "
                 aria-hidden
@@ -79,7 +79,7 @@ export default function ProjectPrevNext({ previous, next }) {
       {/* FOOTER NAV – LEVEL SELECT STYLE */}
       <nav className="
         mt-20 mx-4 pt-8
-        border-t border-cyan-500/30
+        border-t border-pink-200
       ">
         <div className="flex items-center justify-between gap-6">
 
@@ -91,23 +91,23 @@ export default function ProjectPrevNext({ previous, next }) {
               className="
                 group flex items-center gap-4 max-w-[45%]
                 p-4 rounded-xl
-                bg-black/40 backdrop-blur-md
-                border border-cyan-400/30
-                hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]
+                bg-white/50 backdrop-blur-md
+                border border-pink-200
+                hover:shadow-md
                 transition-all
               "
             >
               <ArrowLeft
                 className="
-                  w-5 h-5 text-cyan-300
+                  w-5 h-5 text-pink-500
                   group-hover:-translate-x-1 transition-transform
                 "
               />
               <div className="flex flex-col min-w-0">
-                <span className="text-xs uppercase tracking-widest text-cyan-400">
+                <span className="text-xs uppercase tracking-widest text-pink-400">
                   Vorige Level
                 </span>
-                <span className="font-semibold truncate text-cyan-200">
+                <span className="font-semibold truncate text-pink-700">
                   {previous.title}
                 </span>
               </div>
@@ -124,23 +124,23 @@ export default function ProjectPrevNext({ previous, next }) {
               className="
                 group flex items-center gap-4 max-w-[45%] ml-auto
                 p-4 rounded-xl
-                bg-black/40 backdrop-blur-md
-                border border-purple-400/30
-                hover:shadow-[0_0_25px_rgba(168,85,247,0.6)]
+                bg-white/50 backdrop-blur-md
+                border border-pink-200
+                hover:shadow-md
                 transition-all
               "
             >
               <div className="flex flex-col min-w-0 text-right">
-                <span className="text-xs uppercase tracking-widest text-purple-400">
+                <span className="text-xs uppercase tracking-widest text-pink-400">
                   Volgende Level
                 </span>
-                <span className="font-semibold truncate text-purple-200">
+                <span className="font-semibold truncate text-pink-700">
                   {next.title}
                 </span>
               </div>
               <ArrowRight
                 className="
-                  w-5 h-5 text-purple-300
+                  w-5 h-5 text-pink-500
                   group-hover:translate-x-1 transition-transform
                 "
               />

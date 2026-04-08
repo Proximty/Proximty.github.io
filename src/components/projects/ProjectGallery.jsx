@@ -21,12 +21,12 @@ export default function ProjectGallery({ project }) {
 
   return (
     <div className="mb-6 mx-4">
-      <h2 className="text-2xl font-extrabold text-neon-pink drop-shadow-neon">Gallery</h2>
+      <h2 className="text-2xl font-extrabold text-pink-700">Gallery</h2>
 
       {slides.length > 0 && (
         <div className="relative group mt-6">
           {/* Slide Container */}
-          <div className="overflow-hidden bg-black/90 rounded-xl aspect-video border-4 border-neon-blue shadow-neon">
+          <div className="overflow-hidden bg-white/90 rounded-xl aspect-video border border-pink-200 shadow-md">
             {/* Video Slide */}
             {slides[currentIndex].type === "video" && (
               <iframe
@@ -54,7 +54,7 @@ export default function ProjectGallery({ project }) {
               <button
                 onClick={prevSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full 
-                           bg-neon-purple/70 text-white hover:bg-neon-purple/90 shadow-neon 
+                           bg-white/80 text-pink-600 hover:bg-white shadow-md 
                            transition-all duration-300"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -63,7 +63,7 @@ export default function ProjectGallery({ project }) {
               <button
                 onClick={nextSlide}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full 
-                           bg-neon-purple/70 text-white hover:bg-neon-purple/90 shadow-neon 
+                           bg-white/80 text-pink-600 hover:bg-white shadow-md 
                            transition-all duration-300"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -77,8 +77,8 @@ export default function ProjectGallery({ project }) {
                     onClick={() => setCurrentIndex(idx)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       idx === currentIndex
-                        ? "bg-neon-pink shadow-neon-glow w-5 h-5"
-                        : "bg-neon-cyan/60 hover:bg-neon-cyan/90"
+                        ? "bg-pink-500 shadow-sm w-5 h-5"
+                        : "bg-pink-200 hover:bg-pink-300"
                     }`}
                   />
                 ))}

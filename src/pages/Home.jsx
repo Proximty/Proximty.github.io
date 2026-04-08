@@ -1,6 +1,6 @@
 import projectData from "../data/projectData.json";
 import { siteConfig } from "../siteConfig";
-import ProjectTimeline from "../components/TImeline";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home() {
   const projects = projectData.projects;
@@ -8,10 +8,7 @@ export default function Home() {
   return (
     <section className="relative min-h-screen px-4 py-20 overflow-hidden">
 
-      {/* ── Floating decorative orbs ── */}
-      <div className="orb orb-violet  absolute w-96 h-96 top-[-6rem]   left-[-6rem]"  />
-      <div className="orb orb-pink    absolute w-80 h-80 bottom-[-4rem] right-[-4rem]" />
-      <div className="orb orb-emerald absolute w-64 h-64 top-[40%]      left-[55%]"   />
+
 
       {/* ── Content ── */}
       <div className="relative z-10 container mx-auto flex flex-col items-center text-center">
@@ -48,7 +45,18 @@ export default function Home() {
         </p>
 
         {/* Projecten */}
-        <ProjectTimeline projects={projects} />
+        <div className="mt-20 w-full max-w-6xl text-left">
+          <h2 className="text-3xl font-bold mb-10 text-center gradient-text tracking-wide uppercase">
+            Projecten
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, i) => (
+              <div key={project.id} className="fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

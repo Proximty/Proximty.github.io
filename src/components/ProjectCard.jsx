@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import InteractiveFlora from "./InteractiveFlora";
 
-// Kleuren per rarity
+// Kleuren per rarity, aangepast voor lichte ondergrond
 const rarityMap = {
-  common:    { color: '#a78bfa', label: 'Common',    emoji: '⭐' },
-  rare:      { color: '#38bdf8', label: 'Rare',      emoji: '💎' },
-  epic:      { color: '#f472b6', label: 'Epic',      emoji: '🔮' },
-  legendary: { color: '#fbbf24', label: 'Legendary', emoji: '⚡' },
+  common:    { color: '#9d6bf0', label: 'Common',    emoji: '⭐' },
+  rare:      { color: '#0ea5e9', label: 'Rare',      emoji: '💎' },
+  epic:      { color: '#db2777', label: 'Epic',      emoji: '🔮' },
+  legendary: { color: '#d97706', label: 'Legendary', emoji: '⚡' },
 };
 
 export default function ProjectCard({ project }) {
@@ -18,18 +19,19 @@ export default function ProjectCard({ project }) {
       to={`/projects/${project.id}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="card block overflow-hidden group"
+      className="card block group relative"
       style={{
         borderColor: hover ? rarity.color : 'var(--bordercolor)',
         boxShadow: hover
-          ? `0 8px 40px ${rarity.color}33, 0 0 0 1px ${rarity.color}55`
+          ? `0 8px 24px ${rarity.color}22, 0 0 0 1px ${rarity.color}33`
           : 'var(--shadow-card)',
         transition: 'all 0.35s ease',
         transform: hover ? 'translateY(-6px)' : 'translateY(0)',
       }}
     >
+      <InteractiveFlora />
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden rounded-t-[calc(var(--radius-lg)-1px)]">
         <img
           src={project.thumbnail}
           alt={project.title}
@@ -40,7 +42,7 @@ export default function ProjectCard({ project }) {
           className="absolute inset-0 flex items-end p-4 transition-opacity duration-300"
           style={{
             opacity: hover ? 1 : 0,
-            background: 'linear-gradient(to top, rgba(19,17,28,0.88), transparent)',
+            background: 'linear-gradient(to top, rgba(255,255,255,0.95), transparent)',
           }}
         >
           <span className="text-sm font-bold" style={{ color: rarity.color }}>

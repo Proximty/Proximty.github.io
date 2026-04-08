@@ -6,23 +6,23 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  --bg: #1d1829;
-  --surface: #262038;
-  --surface-2: #302847;
-  --text: #f1eeff;
-  --muted: #a69ebd;
-  --accent: #d946ef;
-  --accent-2: #f472b6;
+  --bg: #fdfaf6;
+  --surface: #ffffff;
+  --surface-2: #fdf8f5;
+  --text: #4a3b42;
+  --muted: #9e8e93;
+  --accent: #ec4899;
+  --accent-2: #fbcfe8;
   --accent-3: #10b981;
-  --accent-text: #1d1829;
-  --bordercolor: #3b3155;
+  --accent-text: #ffffff;
+  --bordercolor: #fce7f3;
 
   --radius-sm: 0.4rem;
   --radius-md: 0.85rem;
   --radius-lg: 1.25rem;
 
-  --shadow-card: 0 4px 24px rgba(167,139,250,0.12);
-  --shadow-hover: 0 8px 40px rgba(167,139,250,0.28);
+  --shadow-card: 0 4px 24px rgba(236,72,153,0.08);
+  --shadow-hover: 0 8px 40px rgba(236,72,153,0.15);
 
   --font-main: "Plus Jakarta Sans", sans-serif;
 }
@@ -39,9 +39,9 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(217,70,239,0.18), transparent),
-    radial-gradient(ellipse 60% 50% at 90% 100%,  rgba(244,114,182,0.15), transparent),
-    radial-gradient(ellipse 50% 40% at 50% 50%,   rgba(16,185,129,0.08),  transparent);
+    radial-gradient(ellipse 80% 60% at 10% 0%,   rgba(251,207,232,0.6), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 100%,  rgba(252,231,243,0.5), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 50%,   rgba(209,250,229,0.4),  transparent);
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-main);
@@ -98,21 +98,6 @@ body {
   transform: translateY(-4px);
 }
 
-/* ─── Timeline ─── */
-.timeline-line {
-  border-left: 2px solid var(--bordercolor);
-  position: relative;
-}
-.timeline-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 0 4px rgba(167,139,250,0.2);
-  position: absolute;
-  left: -8px; top: 6px;
-  transition: box-shadow 0.3s;
-}
-
 /* ─── Button ─── */
 .btn-primary {
   display: inline-flex;
@@ -145,21 +130,31 @@ body {
 .fade-up-delay-2       { animation-delay: 0.2s; }
 .fade-up-delay-3       { animation-delay: 0.3s; }
 
-/* ─── Background orb blobs ─── */
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%       { transform: translateY(-18px) scale(1.04); }
-}
-.orb {
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.32;
-  animation: float 7s ease-in-out infinite;
+
+/* ─── Interactive Flora ─── */
+.flora-leaf {
+  position: absolute;
+  transform: scale(0) rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   pointer-events: none;
 }
-.orb-violet  { background: #d946ef; animation-delay: 0s; }
-.orb-pink    { background: #f472b6; animation-delay: 2.5s; }
-.orb-emerald { background: #10b981; animation-delay: 5s; }
+.group:hover .flora-leaf {
+  transform: scale(1) rotate(var(--rot, 0deg));
+}
+
+.flora-flower {
+  position: absolute;
+  transform: scale(0) rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  opacity: 0;
+}
+.group:active .flora-flower {
+  transform: scale(1) rotate(var(--rot, 0deg)) translateY(-10px);
+  opacity: 1;
+}
 
 /* ─── Floating Flowers ─── */
 @keyframes flower-float-cw {

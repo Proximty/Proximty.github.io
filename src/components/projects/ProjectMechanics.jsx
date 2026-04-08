@@ -8,8 +8,7 @@ export default function ProjectMechanics({ project }) {
     <div className="mx-4 mt-12">
       <h2 className="
         text-xl font-bold mb-6 tracking-widest
-        text-cyan-300
-        drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]
+        text-pink-700
       ">
         CODE HIGHLIGHTS
       </h2>
@@ -19,20 +18,19 @@ export default function ProjectMechanics({ project }) {
           key={i}
           className="
             mb-10 p-6 rounded-xl
-            bg-black/50 backdrop-blur-md
-            border border-cyan-500/30
-            shadow-[0_0_35px_rgba(34,211,238,0.15)]
+            bg-white/60 backdrop-blur-md
+            border border-pink-200
+            shadow-md
           "
         >
           {/* Title + Description */}
           <div className="mb-4">
             <h3 className="
-              text-lg font-bold tracking-wide text-purple-300 mb-2
-              drop-shadow-[0_0_6px_rgba(168,85,247,0.8)]
+              text-lg font-bold tracking-wide text-pink-800 mb-2
             ">
               {m.subtitle}
             </h3>
-            <p className="text-sm md:text-base text-cyan-100/80 leading-relaxed">
+            <p className="text-sm md:text-base text-pink-900/80 leading-relaxed">
               {m.description}
             </p>
           </div>
@@ -43,8 +41,8 @@ export default function ProjectMechanics({ project }) {
             {/* Code Block */}
             <div className="
               h-64 overflow-auto rounded-lg
-              border border-cyan-400/30
-              shadow-[0_0_20px_rgba(34,211,238,0.25)]
+              border border-pink-200
+              shadow-sm
             ">
               <SyntaxHighlighter
                 language="csharp"
@@ -69,8 +67,8 @@ export default function ProjectMechanics({ project }) {
                 rel="noopener noreferrer"
                 className="
                   group relative h-64 rounded-lg overflow-hidden
-                  border border-purple-400/30
-                  shadow-[0_0_20px_rgba(168,85,247,0.25)]
+                  border border-pink-200
+                  shadow-sm
                 "
               >
                 <img
@@ -85,8 +83,8 @@ export default function ProjectMechanics({ project }) {
                 {/* Hover overlay */}
                 <div className="
                   absolute inset-0 opacity-0 group-hover:opacity-100
-                  bg-black/50 flex items-center justify-center
-                  text-purple-300 text-sm tracking-widest
+                  bg-white/80 flex items-center justify-center
+                  text-pink-700 text-sm tracking-widest font-bold
                   transition-opacity
                 ">
                   VIEW IN ENGINE

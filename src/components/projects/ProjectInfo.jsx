@@ -8,22 +8,20 @@ export default function ProjectInfo({ project }) {
         {/* DESCRIPTION PANEL */}
         <div className="
           md:col-span-2 space-y-4
-          bg-black/40 backdrop-blur-md
-          border border-cyan-500/30
+          bg-white/60 backdrop-blur-md
+          border border-pink-200
           rounded-xl p-6
-          shadow-[0_0_30px_rgba(34,211,238,0.15)]
+          shadow-md
         ">
           <h2 className="
-            text-xl font-bold tracking-widest text-cyan-300
-            drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]
+            text-xl font-bold tracking-widest text-pink-700
           ">
             OVER DIT PROJECT
           </h2>
 
           {paragraphs.map((text, i) => (
             <p
-              key={i}
-              className="text-sm md:text-base leading-relaxed text-cyan-100/80"
+              className="text-sm md:text-base leading-relaxed text-pink-900/80"
             >
               {text}
             </p>
@@ -33,33 +31,32 @@ export default function ProjectInfo({ project }) {
         {/* SIDEBAR / HUD */}
         <div className="
           h-fit md:self-start
-          bg-black/50 backdrop-blur-md
-          border border-purple-500/30
+          bg-white/70 backdrop-blur-md
+          border border-pink-300/50
           rounded-xl p-6
-          shadow-[0_0_30px_rgba(168,85,247,0.2)]
+          shadow-md
         ">
           <h3 className="
             text-lg font-bold tracking-widest mb-4
-            text-purple-300
-            border-b border-purple-500/30 pb-2
-            drop-shadow-[0_0_6px_rgba(168,85,247,0.8)]
+            text-pink-700
+            border-b border-pink-200 pb-2
           ">
             DETAILS
           </h3>
 
-          <ul className="text-sm space-y-3 text-purple-100/80">
-            <li className="flex justify-between border-b border-purple-500/20 pb-1">
-              <span className="text-purple-300 font-medium">ROL</span>
+          <ul className="text-sm space-y-3 text-pink-800/90">
+            <li className="flex justify-between border-b border-pink-100 pb-1">
+              <span className="text-pink-700 font-medium">ROL</span>
               <span>{project.projectRole}</span>
             </li>
 
-            <li className="flex justify-between border-b border-purple-500/20 pb-1">
-              <span className="text-purple-300 font-medium">TIJDLIJN</span>
+            <li className="flex justify-between border-b border-pink-100 pb-1">
+              <span className="text-pink-700 font-medium">DUUR</span>
               <span>{project.timeline}</span>
             </li>
 
             <li className="space-y-2">
-              <span className="text-purple-300 font-medium block">TAGS</span>
+              <span className="text-pink-700 font-medium block">TAGS</span>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
@@ -67,9 +64,9 @@ export default function ProjectInfo({ project }) {
                     className="
                       px-2 py-1 text-xs font-semibold
                       rounded-md
-                      bg-cyan-500/10 text-cyan-300
-                      border border-cyan-400/30
-                      shadow-[0_0_6px_rgba(34,211,238,0.4)]
+                      bg-pink-100 text-pink-700
+                      border border-pink-200
+                      shadow-sm
                     "
                   >
                     {tag}
@@ -90,10 +87,10 @@ export default function ProjectInfo({ project }) {
                   className="
                     px-4 py-2 text-sm font-semibold
                     rounded-lg
-                    border border-cyan-400/40
-                    text-cyan-300
-                    hover:bg-cyan-400/10
-                    hover:shadow-[0_0_12px_rgba(34,211,238,0.8)]
+                    border border-pink-300
+                    text-pink-700
+                    hover:bg-pink-50
+                    hover:shadow-md
                     transition-all
                   "
                 >
@@ -109,9 +106,9 @@ export default function ProjectInfo({ project }) {
                   className="
                     px-4 py-2 text-sm font-semibold
                     rounded-lg
-                    bg-purple-600/80 text-white
-                    hover:bg-purple-500
-                    hover:shadow-[0_0_16px_rgba(168,85,247,0.9)]
+                    bg-pink-500 text-white
+                    hover:bg-pink-600
+                    hover:shadow-md
                     transition-all
                   "
                 >

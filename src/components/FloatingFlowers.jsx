@@ -36,7 +36,7 @@ export default function FloatingFlowers() {
             opacity: 0.55,
             userSelect: 'none',
             display: 'inline-block',
-            filter: 'drop-shadow(0 2px 6px rgba(167,139,250,0.35))',
+            filter: 'drop-shadow(0 2px 6px rgba(236,72,153,0.3))',
           }}
         >
           {f.emoji}
