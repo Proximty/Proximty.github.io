@@ -224,10 +224,10 @@
       "projects": [
         {
           "id": "jam-speedy",
-          "title": "Speedy Deliveries",
+          "title": "masks-eye",
           "tagline": "Gemaakt in 48 uur voor de Global Game Jam.",
           "description": "Een hectische bezorg-game waarin de physics altijd tegen je werken. Gemaakt tijdens de Global Game Jam 2025. Binnen 48 uur gingen we van pitch naar speelbaar prototype. Het thema was 'Bubbles' en we hebben dit vertaald naar een fragiel pakketje in een bubbel die door een obstakelparcours moet manoeuvreren.\n\nDe grootste uitdaging was het balanceren van de physics zodat het frustrerend maar toch bevredigend was om te besturen. Ik was verantwoordelijk voor de core mechanics en het level-spawning systeem.",
-          "thumbnail": "https://picsum.photos/seed/speedy/1200/600",
+          "thumbnail": "https://img.itch.zone/aW1nLzI1MjcxODgzLnBuZw==/original/zEapfu.png",
           "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
           "screenshots": [
             "https://picsum.photos/seed/speedy1/1200/800",
@@ -244,7 +244,7 @@
             {
               "subtitle": "Bubble Physics",
               "description": "De speler bestuurt een object dat constant drijfvermogen (buoyancy) heeft, maar ook reageert op luchtstromen. We gebruiken addForce om de beweging te simuleren waarbij de input van de speler direct invloed heeft op de flow van de bubbel.",
-              "image": "https://img.itch.zone/aW1nLzI1MjcxODgzLnBuZw==/original/zEapfu.png",
+              "image": "https://placehold.co/600x400?text=Bubble+Physics",
               "code": "void FixedUpdate()\n{\n    float moveHorizontal = Input.GetAxis(\"Horizontal\");\n    Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);\n    rb.AddForce(movement * speed);\n    rb.AddForce(Vector3.up * buoyancyForce);\n}"
             },
             {
