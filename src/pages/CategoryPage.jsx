@@ -35,12 +35,14 @@ export default function CategoryPage() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {category.projects.map((project, i) => (
-             <div key={project.id} className="fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
-                <ProjectCard project={project} />
-             </div>
-          ))}
+        <div className="w-full max-w-6xl mx-auto text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {category.projects.map((project, i) => (
+               <div key={project.id} className="fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <ProjectCard project={project} />
+               </div>
+            ))}
+          </div>
         </div>
 
       </div>
