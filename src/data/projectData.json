@@ -189,7 +189,12 @@
             "https://picsum.photos/seed/rpg1/1200/800",
             "https://picsum.photos/seed/rpg2/1200/800"
           ],
-          "tags": ["Unity", "C#", "PCG", "Algoritmes"],
+          "tags": [
+            "Unity",
+            "C#",
+            "PCG",
+            "Algoritmes"
+          ],
           "projectRole": "Solo Developer",
           "timeline": "In vrije tijd",
           "mechanics": [
@@ -239,7 +244,7 @@
             {
               "subtitle": "Bubble Physics",
               "description": "De speler bestuurt een object dat constant drijfvermogen (buoyancy) heeft, maar ook reageert op luchtstromen. We gebruiken addForce om de beweging te simuleren waarbij de input van de speler direct invloed heeft op de flow van de bubbel.",
-              "image": "https://placehold.co/600x400?text=Bubble+Physics",
+              "image": "https://img.itch.zone/aW1nLzI1MjcxODgzLnBuZw==/original/zEapfu.png",
               "code": "void FixedUpdate()\n{\n    float moveHorizontal = Input.GetAxis(\"Horizontal\");\n    Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);\n    rb.AddForce(movement * speed);\n    rb.AddForce(Vector3.up * buoyancyForce);\n}"
             },
             {
@@ -249,8 +254,8 @@
               "code": "void OnTriggerEnter(Collider other)\n{\n    if (other.CompareTag(\"Hazard\"))\n    {\n        Instantiate(popParticle, transform.position, Quaternion.identity);\n        GameManager.Instance.GameOver();\n        Destroy(gameObject);\n    }\n}"
             }
           ],
-          "git": "https://github.com/Proximty",
-          "itch": "https://proxmity.itch.io/"
+          "git": "https://github.com/TPODanzig/Jammers2026",
+          "itch": "https://tpo-danzig.itch.io/masks-eye"
         }
       ]
     }
