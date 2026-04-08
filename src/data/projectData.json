@@ -171,5 +171,53 @@
       "git": "",
       "itch": "https://fvugt.itch.io/ar-museum"
     }
-  ]
+  ],
+  "categories": {
+    "hobby": {
+      "id": "hobby",
+      "title": "Hobbie Projecten",
+      "tagline": "Experimenten, prototypes en persoonlijke creaties.",
+      "thumbnail": "https://picsum.photos/seed/hobby/1200/600",
+      "projects": [
+        {
+          "id": "hobby-rpg",
+          "title": "Mini RPG",
+          "tagline": "Een klein procedurally generated RPG experiment.",
+          "description": "Dit is een hobbyproject waar ik heb geëxperimenteerd met procedurally generated dungeons en simpele wiskunde voor gevechten. Het is niet bedoeld als commercieel product, maar meer als technische speeltuin.",
+          "thumbnail": "https://picsum.photos/seed/minirpg/1200/600",
+          "youtube": "",
+          "screenshots": [],
+          "tags": ["Unity", "C#", "PCG"],
+          "projectRole": "Solo Developer",
+          "timeline": "In vrije tijd",
+          "mechanics": [],
+          "git": "https://github.com/Proximty",
+          "itch": ""
+        }
+      ]
+    },
+    "gamejam": {
+      "id": "gamejam",
+      "title": "Gamejams",
+      "tagline": "Korte games, gemaakt onder tijdsdruk tijdens marathons.",
+      "thumbnail": "https://picsum.photos/seed/gamejam/1200/600",
+      "projects": [
+        {
+          "id": "jam-speedy",
+          "title": "Speedy Deliveries",
+          "tagline": "Gemaakt in 48 uur voor de Global Game Jam.",
+          "description": "Een hectische bezorg-game waarin de physics altijd tegen je werken. Gemaakt tijdens de Global Game Jam 2025. Binnen 48 uur gingen we van pitch naar speelbaar prototype.",
+          "thumbnail": "https://picsum.photos/seed/speedy/1200/600",
+          "youtube": "",
+          "screenshots": [],
+          "tags": ["Global Game Jam", "Physics", "Arcade"],
+          "projectRole": "Gameplay Programmer",
+          "timeline": "48 uur",
+          "mechanics": [],
+          "git": "",
+          "itch": "https://proxmity.itch.io/"
+        }
+      ]
+    }
+  }
 }

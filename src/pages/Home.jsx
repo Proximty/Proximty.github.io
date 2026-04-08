@@ -1,6 +1,7 @@
 import projectData from "../data/projectData.json";
 import { siteConfig } from "../siteConfig";
 import ProjectCard from "../components/ProjectCard";
+import FolderCard from "../components/FolderCard";
 
 export default function Home() {
   const projects = projectData.projects;
@@ -53,6 +54,11 @@ export default function Home() {
             {projects.map((project, i) => (
               <div key={project.id} className="fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
                 <ProjectCard project={project} />
+              </div>
+            ))}
+            {Object.values(projectData.categories || {}).map((category, i) => (
+              <div key={category.id} className="fade-up" style={{ animationDelay: `${(projects.length + i) * 0.1}s` }}>
+                <FolderCard category={category} />
               </div>
             ))}
           </div>

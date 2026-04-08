@@ -7,9 +7,9 @@ export const siteConfig = {
 
   socials: {
     email: "hanna@versluizen.nl",
-    github: "https://github.com/",
+    github: "https://github.com/Proximty",
     linkedin: "https://linkedin.com/",
-    itch: "https://itch.io/",
+    itch: "https://proxmity.itch.io/",
   },
 
   aboutLong: `

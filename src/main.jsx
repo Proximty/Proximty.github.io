@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/contact";
 import ProjectPage from "./pages/ProjectPage";
+import CategoryPage from "./pages/CategoryPage";
 
 
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="projects/:projectId" element={<ProjectPage />} />
+          <Route path="category/:categoryId" element={<CategoryPage />} />
         </Route>
       </Routes>
     </HashRouter>

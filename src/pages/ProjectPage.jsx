@@ -8,24 +8,38 @@ import ProjectPrevNext from "../components/projects/ProjectPrevNext";
 
 export default function ProjectPage() {
     const { projectId } = useParams();
-    const project = projectData.projects.find(p => p.id === projectId);
+    let currentList = projectData.projects;
+    let project = currentList.find(p => p.id === projectId);
 
     if (!project) {
-        return <div className="container mx-auto px-4 py-12 text-center">Project niet gevonden</div>;
+        // Look in categories
+        for (const catKey in projectData.categories || {}) {
+            const sublist = projectData.categories[catKey].projects;
+            const found = sublist.find(p => p.id === projectId);
+            if (found) {
+                project = found;
+                currentList = sublist;
+                break;
+            }
+        }
+    }
+
+    if (!project) {
+        return <div className="container mx-auto px-4 py-32 text-center text-pink-700 font-bold">Project niet gevonden</div>;
     }
 
     // Find previous and next projects (with looping)
-    const currentIndex = projectData.projects.findIndex(p => p.id === projectId);
-    const previousIndex = currentIndex > 0 ? currentIndex - 1 : projectData.projects.length - 1;
-    const nextIndex = currentIndex < projectData.projects.length - 1 ? currentIndex + 1 : 0;
+    const currentIndex = currentList.findIndex(p => p.id === projectId);
+    const previousIndex = currentIndex > 0 ? currentIndex - 1 : currentList.length - 1;
+    const nextIndex = currentIndex < currentList.length - 1 ? currentIndex + 1 : 0;
     
     const previousProject = { 
-        title: projectData.projects[previousIndex].title, 
-        url: `/projects/${projectData.projects[previousIndex].id}` 
+        title: currentList[previousIndex].title, 
+        url: `/projects/${currentList[previousIndex].id}` 
     };
     const nextProject = { 
-        title: projectData.projects[nextIndex].title, 
-        url: `/projects/${projectData.projects[nextIndex].id}` 
+        title: currentList[nextIndex].title, 
+        url: `/projects/${currentList[nextIndex].id}` 
     };
 
     return (
