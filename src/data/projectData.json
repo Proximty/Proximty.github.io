@@ -5,11 +5,11 @@
       "title": "Buddy Adventures",
       "tagline": "Een moderne 3D-remake van de arcade klassieker.",
       "description":"dit is een moderne 3D platformer met een leuke feature, je gaat samen op avontuur met je buddies, de buddies worden bestuurd door een buddy sysyteem en je collect ze door de levels te spelen sterren te verzamelen en ze dan in de shop te halen. dit shop systeem was ingewikkeld te laten samen werken met het buddy systeem",
-      "thumbnail": "https://picsum.photos/seed/asteroids/1200/600",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "thumbnail": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDM3Ny5wbmc=/original/Qc6TIL.png",
+      "youtube": "https://youtu.be/3WapmKwgV-0",
       "screenshots": [
-        "https://picsum.photos/seed/a1/1200/800",
-        "https://picsum.photos/seed/a2/1200/800"
+        "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
+        "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png"
         
       ],
       "tags": [
@@ -24,13 +24,13 @@
         {
           "subtitle": "buddy systeem",
           "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
-          "image": "https://picsum.photos/seed/e1/1200/800",
+          "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png",
           "code": " private void Update(){BunnyCheck();}       public void BunnyCheck(){ if(boughtBuddy[0] == true){jumpCount = 2;} "
         },
         {
           "subtitle": "Shop",
           "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
-          "image": "https://picsum.photos/seed/e2/1200/800",
+          "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
           "code": " private void Update(){if (Ativeshop == false){selectBorder.transform.position = buddyimage[shopselect].transform.position;}"
         }
       ]
