@@ -82,7 +82,7 @@ export default function ProjectCard({ project }) {
                 </span>
                 <span className="text-zinc-600 block leading-none">{}</span>
               </div>
-              <div className="leading-tight opacity-70 group-hover/code:opacity-100 transition-opacity break-all line-clamp-4">
+              <div className="leading-tight opacity-70 group-hover/code:opacity-100 transition-opacity whitespace-pre-wrap break-words line-clamp-4">
                 {m.code}
               </div>
               
