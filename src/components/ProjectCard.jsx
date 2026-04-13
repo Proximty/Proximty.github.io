@@ -29,6 +29,14 @@ export default function ProjectCard({ project }) {
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
+        
+        {/* Status Badge */}
+        {project.status === 'In Development' && (
+          <div className="absolute top-3 right-3 bg-amber-500/90 backdrop-blur-sm border border-amber-400 text-white px-2.5 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-sm z-10">
+            <span>🚧</span> In Ontwikkeling
+          </div>
+        )}
+
         {/* Overlay */}
         <div
           className="absolute inset-0 flex items-end p-4 transition-opacity duration-300"
