@@ -181,6 +181,7 @@
         {
           "id": "hobby-rpg",
           "title": "Mini RPG",
+          "status": "In Development",
           "tagline": "Een klein procedurally generated RPG experiment.",
           "description": "Dit is een hobbyproject waar ik heb geëxperimenteerd met procedurally generated dungeons en simpele wiskunde voor gevechten. Het doel was om te leren hoe je oneindige speelwerelden kunt genereren die toch samenhangend aanvoelen.\n\nIk heb een eigen Cellular Automata systeem geschreven voor de grotten en een Dijkstra pathfinding algoritme voor de vijandige monsters. Het is een sandbox project waar ik nieuwe technieken in uitprobeer voordat ik ze in grotere projecten toepas.",
           "thumbnail": "https://picsum.photos/seed/minirpg/1200/600",

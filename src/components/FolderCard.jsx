@@ -4,18 +4,18 @@ import InteractiveFlora from "./InteractiveFlora";
 
 export default function FolderCard({ category }) {
   const [hover, setHover] = useState(false);
-  const color = '#f472b6'; // pink-400
+  const accentColor = 'var(--accent)';
 
   return (
     <Link
       to={`/category/${category.id}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="card block group relative bg-pink-50/30"
+      className="card block group relative"
       style={{
-        borderColor: hover ? color : 'var(--bordercolor)',
+        borderColor: hover ? accentColor : 'var(--bordercolor)',
         boxShadow: hover
-          ? `0 8px 24px ${color}22, 0 0 0 1px ${color}33`
+          ? `0 8px 24px rgba(236,72,153,0.15), 0 0 0 1px rgba(236,72,153,0.2)`
           : 'var(--shadow-card)',
         transition: 'all 0.35s ease',
         transform: hover ? 'translateY(-6px)' : 'translateY(0)',
@@ -23,40 +23,58 @@ export default function FolderCard({ category }) {
     >
       <InteractiveFlora />
       
-      {/* Folder Tab Visual */}
-      <div className="absolute top-0 left-4 w-1/4 h-1.5 bg-pink-400 rounded-b-md z-20" />
-
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden rounded-t-[calc(var(--radius-lg)-1px)]">
         <img
           src={category.thumbnail}
           alt={category.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         {/* Overlay */}
         <div
-          className="absolute inset-0 flex items-center justify-center p-4 transition-opacity duration-300"
+          className="absolute inset-0 flex items-end p-4 transition-opacity duration-300"
           style={{
-            background: 'linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.4))',
+            opacity: hover ? 1 : 0,
+            background: 'linear-gradient(to top, rgba(255,255,255,0.95), transparent)',
           }}
         >
-           <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl border border-pink-200 text-center shadow-sm transform transition-transform group-hover:scale-110 duration-500">
-             <span className="text-4xl block mb-2 drop-shadow-sm">📁</span>
-             <span className="font-bold text-pink-700 uppercase tracking-widest text-xs">Collectie</span>
-           </div>
+          <span className="text-sm font-bold" style={{ color: accentColor }}>
+            Bekijk map →
+          </span>
+        </div>
+
+        {/* Folder Badge */}
+        <div className="absolute top-3 left-3 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-1.5 z-10">
+          <span>📁</span> Map
         </div>
       </div>
 
       {/* Body */}
       <div className="p-5">
-        <h3 className="text-xl font-extrabold mb-1 text-pink-700">
-          {category.title}
-        </h3>
-        <p className="text-sm mb-4 leading-relaxed" style={{ color: 'var(--muted)' }}>
+        <div className="flex items-center gap-2 mb-1">
+          <h3 className="text-lg font-bold" style={{ color: accentColor }}>
+            {category.title}
+          </h3>
+        </div>
+
+        <p className="text-sm mb-3 line-clamp-2" style={{ color: 'var(--muted)' }}>
           {category.tagline}
         </p>
-        <div className="inline-block px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-md">
-          {category.projects.length} {category.projects.length === 1 ? 'project' : 'projecten'} →
+
+        {/* Item count */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          <span className="tag">
+            {category.projects.length} {category.projects.length === 1 ? 'project' : 'projecten'}
+          </span>
+        </div>
+        
+        {/* Fake Mechanics area so layout matches ProjectCard */}
+        <div className="grid grid-cols-1 gap-2 pt-3 border-t border-zinc-100">
+           <div className="group/code relative bg-zinc-950 rounded-lg p-3 text-[10px] text-zinc-300 font-mono h-8 overflow-hidden border border-zinc-800 flex items-center">
+             <span className="text-zinc-500 font-bold uppercase tracking-tighter text-[9px]">
+                Collectie van projecten
+             </span>
+           </div>
         </div>
       </div>
     </Link>
