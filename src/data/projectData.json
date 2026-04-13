@@ -106,8 +106,8 @@
           "image": "https://placehold.co/600x400?text=Projectile",
           "code": "  public override void attack(){ base.attack();if (AttackTimer <= 0){Instantiate(projectile, projectilePosition.position, Quaternion.identity); AudioManager.Instance.audioClips[12].Play(); AttackTimer = 1f;}"
         }
-      ]
-      "itch" :"https://xanoblade404.itch.io/syndrome-fever-dream";
+      ],
+      "itch": "https://xanoblade404.itch.io/syndrome-fever-dream"
     },
     {
       "id": "Symphony Of Skin",
@@ -132,7 +132,7 @@
           "subtitle": "Makey Makey",
           "description": "dit is hoe de makey makey samen werkt met de rashberry PI ",
           "image": "https://imgur.com/Dx4rvjV",
-          "code": "try {if (!File.Exists(ConfigPath)) {Console.WriteLine($[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.);// keep existing defaultsif (mappen.Count == 0) mappen = new() {{ "103", "2000s" }, { "108", "2010s" }, { "105", "Anime" },{ "106", "EDM"   }, { "57",  "Game"  }, { "17",  "Pop"   }, { 103,108, Secret }}; return;}"
+          "code": "try {if (!File.Exists(ConfigPath)) {Console.WriteLine($\"[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.\");// keep existing defaultsif (mappen.Count == 0) mappen = new() {{ \"103\", \"2000s\" }, { \"108\", \"2010s\" }, { \"105\", \"Anime\" },{ \"106\", \"EDM\"   }, { \"57\",  \"Game\"  }, { \"17\",  \"Pop\"   }, { 103,108, Secret }}; return;}"
         },
         {
           "subtitle": "Rashberry PI",
@@ -256,7 +256,6 @@
               "code": "    private void FixedUpdate(){his.transform.position = new Vector3( Mathf.Round( this.transform.position.x) + _direction.x, Mathf.Round(this.transform.position.y)+ _direction.y, Mathf.Round(this.transform.position.z));}"
             }
           ]
-         "itch": "https://tpo-danzig.itch.io/masks-eye"    
         }
         
       ]
