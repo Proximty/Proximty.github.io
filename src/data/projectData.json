@@ -22,16 +22,16 @@
       "timeline": "2 weken",
       "mechanics": [
         {
-          "subtitle": "buddy systeem",
-          "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
+          "subtitle": "Buddy systeem",
+          "description": "Dit houd bij of je al een buddy of 1 van dezelfde buddy hebt. Daarnaast zorgt dit ervoor dat je een dubbeljump krijgt als je een buddy hebt gekocht.",
           "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png",
-          "code": " private void Update(){BunnyCheck();}       public void BunnyCheck(){ if(boughtBuddy[0] == true){jumpCount = 2;} "
+          "code": "private void Update()\n{\n    BunnyCheck();\n}\n\npublic void BunnyCheck()\n{\n    if(boughtBuddy[0] == true)\n    {\n        jumpCount = 2;\n    }\n}"
         },
         {
-          "subtitle": "Shop",
-          "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
+          "subtitle": "Shop systeem",
+          "description": "Een ingebouwd winkel systeem om buddies te kunnen selecteren en kopen. De selectiebox verplaatst zich vloeiend naar de huidige buddy in het grid.",
           "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
-          "code": " private void Update(){if (Ativeshop == false){selectBorder.transform.position = buddyimage[shopselect].transform.position;}"
+          "code": "private void Update()\n{\n    if (Ativeshop == false)\n    {\n        selectBorder.transform.position = buddyimage[shopselect].transform.position;\n    }\n}"
         }
       ]
       ,
