@@ -205,16 +205,16 @@
           "timeline": "2 weken",
           "mechanics": [
             {
-              "subtitle": "buddy systeem",
-              "description": "dit houd bij of je al een buddy 1 van dezelfde buddy hebt daarnaast zorgt dit ervoor dat je een dubbeljump krijgt",
+              "subtitle": "Buddy systeem",
+              "description": "Dit houd bij of je al een buddy of 1 van dezelfde buddy hebt. Daarnaast zorgt dit ervoor dat je een dubbeljump krijgt.",
               "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png",
-              "code": " private void Update(){BunnyCheck();}       public void BunnyCheck(){ if(boughtBuddy[0] == true){jumpCount = 2;} "
+              "code": "private void Update()\n{\n    BunnyCheck();\n}\n\npublic void BunnyCheck()\n{\n    if(boughtBuddy[0] == true)\n    {\n        jumpCount = 2;\n    }\n}"
             },
             {
               "subtitle": "Shop",
-              "description": "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
+              "description": "Een ingebouwd winkel systeem om buddies te kunnen selecteren en kopen. De selectiebox verplaatst zich vloeiend naar de huidige buddy in het grid.",
               "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
-              "code": " private void Update(){if (Ativeshop == false){selectBorder.transform.position = buddyimage[shopselect].transform.position;}"
+              "code": "private void Update()\n{\n    if (Ativeshop == false)\n    {\n        selectBorder.transform.position = buddyimage[shopselect].transform.position;\n    }\n}"
             }
           ],
           "git": "https://github.com/fvugt/asteroids-3d",
@@ -230,7 +230,7 @@
       "projects": [
         {
           "id": "jam-test-1",
-          "title": "48 Hour Game Jam",
+          "title": "24 Hour Game Jam",
           "tagline": "Een snelle twin-stick shooter met vijandige AI.",
           "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
           "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
@@ -241,7 +241,7 @@
           ],
           "tags": ["Unity", "C#", "AI", "Topdown"],
           "projectRole": "Programmer",
-          "timeline": "1 week",
+          "timeline": "24 uur",
           "mechanics": [
             {
               "subtitle": "Enemy AI State Machine",
