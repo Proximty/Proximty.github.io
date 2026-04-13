@@ -40,8 +40,9 @@ export default function ProjectCard({ project }) {
         
         {/* Status Badge */}
         {project.status === 'In Development' && (
-          <div className="absolute top-3 right-3 bg-amber-500/90 backdrop-blur-sm border border-amber-400 text-white px-2.5 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-widest flex items-center gap-1.5 shadow-sm z-10">
-            <span>🚧</span> In Ontwikkeling
+          <div className="absolute top-4 right-4 bg-amber-500/95 backdrop-blur-md border border-amber-400/50 text-white px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-widest flex items-center gap-2 shadow-xl z-20 transition-transform group-hover:scale-105">
+            <span className="text-base animate-pulse">🚧</span> 
+            <span className="drop-shadow-sm">In Ontwikkeling</span>
           </div>
         )}
 
