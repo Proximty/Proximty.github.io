@@ -42,31 +42,32 @@
       "id": "(not just) golddigers",
       "title": "(Not just) golddigers",
       "tagline": "een leuke graaf game voor mobile.",
-      "description": "Deze XR escape room is ontwikkeld met Unity's XR Interaction Toolkit en plaatst spelers in een mysterieuze kamer vol interactieve puzzels. Elke puzzel kan op meerdere manieren opgelost worden, wat spelers de vrijheid geeft om creatief te denken.\n\nIk wilde onderzoeken hoe je natuurlijke interacties kunt bouwen met VR controllers waarbij physics-based interactions zorgen voor maximale immersion.\n\nHet project richtte zich op drie kernpijlers: natuurlijke object manipulatie, physics-based puzzels en environmental storytelling waarbij de ruimte zelf het verhaal vertelt.",
+      "description": "dit is een leuke mobiele evaring, het publiek was gericht op kinderen tussen 8 en 12 jaar oud, je graaft hier voor fossilen en mineralen en zo leer je wat der allemaal in de grond bestaan.",
       "thumbnail": "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDM5MjI0My5wbmc=/original/bAas9b.png",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "youtube": "https://youtu.be/K93C0auuVJI",
       "screenshots": [
-        "https://picsum.photos/seed/xr1/1200/800",
-        "https://picsum.photos/seed/xr2/1200/800",
-        "https://picsum.photos/seed/xr3/1200/800"
+        "https://imgur.com/undefined",
+        "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDM5MjI0My5wbmc=/original/bAas9b.png",
+        "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDQ2NzM4NC5wbmc=/original/%2BUznNu.png"
       ],
       "tags": [
         "Unity",
-        "C#"],
-      "projectRole": "XR Interaction Designer",
+        "C#",
+      "Android"],
+      "projectRole": "pick-up",
       "timeline": "3 weken",
       "mechanics": [
         {
           "subtitle": "Grab Interaction",
           "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
-          "image": "https://placehold.co/600x400?text=Grab",
-          "code": "public void OnSelectEntered(SelectEnterEventArgs args)\n{\n    grabbed = true;\n    rb.isKinematic = true;\n}\n\npublic void OnSelectExited(SelectExitEventArgs args)\n{\n    grabbed = false;\n    rb.isKinematic = false;\n}"
+          "image": "https://imgur.com/a/MYFO6YR",
+          "code": "public class pickup : MonoBehaviour { [SerializeField] private gamemanager _Manager; public int Value;   private void Start(){_Manager = GameObject.Find(GameManager).GetComponent<gamemanager>();} public void StoneCount()     public void StoneCount(){Destroy(gameObject); _Manager.StoneCount++; CoinManager.instance.AddCoins(Value);}} "
         },
         {
           "subtitle": "Mining System",
           "description": "Een geavanceerd mining systeem waarbij spelers met een pikhouweel edelstenen uit de rotsen kunnen slaan. Het systeem berekent de impact force en spawn particles op het raakpunt.",
-          "image": "https://placehold.co/600x400?text=Mining",
-          "code": "void OnCollisionEnter(Collision collision)\n{\n    if(collision.relativeVelocity.magnitude > breakForce)\n    {\n        SpawnGem();\n        Destroy(gameObject);\n    }\n}"
+          "image": "https://imgur.com/8gTepo6",
+          "code": "void Start(){ if (playOnStart) Play(); _vergrootglas.SetActive(false); _gameTuruorial.SetActive(false); _AudioSource = GameObject.Find(AudioSource).GetComponent<AudioSource>();}"
         }
       ]
       ,
@@ -79,74 +80,73 @@
       "tagline": "Een snelle twin-stick shooter met vijandige AI.",
       "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
       "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
-      "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "youtube": "https://www.youtube.com/watch?v=1QZWKmODwXk",
       "screenshots": [
-        "https://picsum.photos/seed/shooter1/1200/800",
-        "https://picsum.photos/seed/shooter2/1200/800"
+        "https://imgur.com/fzaLQHM",
+        "https://imgur.com/s3kYL08"
       ],
       "tags": [
         "Unity",
         "C#",
         "AI",
-        "Topdown"
+        "VR"
       ],
       "projectRole": "Programmer",
-      "timeline": "1 week",
+      "timeline": "8 week",
       "mechanics": [
         {
           "subtitle": "Enemy AI State Machine",
           "description": "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
-          "image": "https://placehold.co/600x400?text=Enemy+AI",
-          "code": "void Update()\n{\n    switch(state)\n    {\n        case Idle:\n            LookForPlayer();\n            break;\n\n        case Chase:\n            MoveTowardPlayer();\n            break;\n\n        case Attack:\n            TryShoot();\n            break;\n    }\n}"
+          "image": "https://imgur.com/KQRCdsN",
+          "code": "    {switch (currentState){case BotBase.Startup:Startup();break; case BotBase.Idle:idle();break; case BotBase.Wondering:wondering();break; case BotBase.Chase:DoChase();break; case BotBase.Attack:attack();break; case BotBase.Death:death()break; case BotBase.Off:Debug.LogWarning(Unknown state:  + currentState);break;}"
         },
         {
-          "subtitle": "Projectile System",
-          "description": "Hit-detection via raycasts met instant feedback - veel sneller en accurater dan physics-based projectiles. De raycast spawned een hit effect op het impact point en gebruikt layer masks om te bepalen wat geraakt kan worden. Elk schot krijgt een tracer effect die de bullet path visualiseert.",
+          "subtitle": "Light robot attack",
+          "description": "dit is 1 van de enemys naast de basis. deze enemy heeft zijn eigen persoonlijkheid",
           "image": "https://placehold.co/600x400?text=Projectile",
-          "code": "void Shoot()\n{\n    Ray ray = new Ray(transform.position, transform.forward);\n\n    if (Physics.Raycast(ray, out var hit, 50f))\n    {\n        Debug.Log($\"Hit {hit.collider.name}\");\n    }\n}"
+          "code": "  public override void attack(){ base.attack();if (AttackTimer <= 0){Instantiate(projectile, projectilePosition.position, Quaternion.identity); AudioManager.Instance.audioClips[12].Play(); AttackTimer = 1f;}"
         }
       ]
+      "itch" :"https://xanoblade404.itch.io/syndrome-fever-dream";
     },
     {
-      "id": "vr-training-sim",
-      "title": "VR Training Simulator",
-      "tagline": "Een realistische VR-training voor industriële procedures.",
-      "description": "Deze VR training simulator is gebouwd voor het oefenen van complexe industriële procedures in een volledig veilige virtuele omgeving. Het doel was om een training te creëren die net zo effectief is als hands-on training, maar zonder de risico's en kosten.\n\nDe focus lag op realistische hand-tracking voor natuurlijke interacties, stapsgewijze instructies die gebruikers begeleiden en gedetailleerde feedback op gebruikersacties waarbij immediate feedback het leerproces versterkt.\n\nHet project leerde mij hoe je effectieve VR training ervaringen ontwerpt met verschillende difficulty modes en performance tracking om daadwerkelijk kennisoverdracht te bevorderen.",
+      "id": "Symphony Of Skin",
+      "title": "interactieve Instalatie",
+      "tagline": "Maak Samen muziek. concectie is key!",
+      "description": "deze instalatie zorgt ervoor dat mensen samen lol kunnen maken",
       "thumbnail": "https://picsum.photos/seed/vrtrain/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "screenshots": [
-        "https://picsum.photos/seed/vrt1/1200/800",
-        "https://picsum.photos/seed/vrt2/1200/800",
-        "https://picsum.photos/seed/vrt3/1200/800"
+        "https://imgur.com/undefined",
+        "https://imgur.com/Dx4rvjV"
       ],
       "tags": [
-        "Unity",
-        "VR",
-        "Hand Tracking",
-        "Training"
+        "VS Code",
+        "Makey Makey",
+        "rahberry PI"
       ],
-      "projectRole": "VR Developer",
-      "timeline": "4 weken",
+      "projectRole": "XR Developer",
+      "timeline": "8 weken",
       "mechanics": [
         {
-          "subtitle": "Step-by-Step Guide System",
-          "description": "Een dynamisch instructiesysteem dat de gebruiker door complexe multi-step procedures leidt met real-time visual guidance. Elke step heeft validation criteria die checken of de actie correct is uitgevoerd. In guided mode krijg je hints als je te lang stilstaat, terwijl advanced mode minimale assists heeft voor realistischere training.",
-          "image": "https://placehold.co/600x400?text=Guide+System",
-          "code": "public class StepGuide : MonoBehaviour\n{\n    public List<TrainingStep> steps;\n    private int currentStep = 0;\n\n    void CheckStepCompletion()\n    {\n        if (steps[currentStep].IsCompleted())\n        {\n            currentStep++;\n            ShowNextInstruction();\n        }\n    }\n}"
+          "subtitle": "Makey Makey",
+          "description": "dit is hoe de makey makey samen werkt met de rashberry PI ",
+          "image": "https://imgur.com/Dx4rvjV",
+          "code": "try {if (!File.Exists(ConfigPath)) {Console.WriteLine($[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.);// keep existing defaultsif (mappen.Count == 0) mappen = new() {{ "103", "2000s" }, { "108", "2010s" }, { "105", "Anime" },{ "106", "EDM"   }, { "57",  "Game"  }, { "17",  "Pop"   }, { 103,108, Secret }}; return;}"
         },
         {
-          "subtitle": "Hand Tracking Validation",
-          "description": "Controleert of handposities en hand poses correct zijn voor specifieke acties door palm orientation en finger positions te valideren. Wanneer je grip incorrect is, verschijnt een ghost hand overlay die de correcte positie toont. Dit is veel effectiever dan tekstuele instructies omdat mensen de juiste pose kunnen imiteren.",
-          "image": "https://placehold.co/600x400?text=Hand+Tracking",
-          "code": "bool ValidateHandPose(HandPose required)\n{\n    float similarity = Vector3.Dot(\n        currentPose.palmNormal,\n        required.palmNormal\n    );\n\n    return similarity > 0.95f;\n}"
+          "subtitle": "Rashberry PI",
+          "description": "De rashberry pi zoek hier naar audio apparaten om de muziek af te kunnen spelen en dat alles goed hoorbaar i",
+          "image": "https://imgur.com/5rUAhgz",
+          "code": " if (root.TryGetProperty(devicePath,    out var dp))  devicePath  = dp.GetString()!;if (root.TryGetProperty(musicBasePath, out var mp))  basisPad    = mp.GetString()!;if (root.TryGetProperty(audioDevice,   out var ad))  audioDevice = ad.GetString()!;if (root.TryGetProperty(outputDriver,  out var od))  outputDriver = od.GetString()!;if (root.TryGetProperty(volume,        out var vl))  volume      = vl.GetInt32();if (root.TryGetProperty(loopTracks,    out var lt))  loopTracks  = lt.GetBoolean();if (root.TryGetProperty(debugLogging,  out var dl))  debugLog    = dl.GetBoolean();"
         }
       ],
-      "git": "https://github.com/fvugt/vr-training-sim",
+      "git": "https://github.com/Proximty/Symphony-Of-Skin-",
       "itch": ""
     },
     {
       "id": "ar-museum-guide",
-      "title": "AR Museum Guide",
+      "title": "Project Publish",
       "tagline": "Een interactieve AR-applicatie voor museum bezoekers.",
       "description": "De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.\n\nGebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.\n\nDit project introduceerde mij in AR Foundation, image tracking en UI design voor augmented reality waarbij ik leerde werken met verschillende lighting conditions in musea.",
       "thumbnail": "https://picsum.photos/seed/armuseum/1200/600",
@@ -224,8 +224,8 @@
     },
     "game-jams": {
       "id": "game-jams",
-      "title": "Game Jams",
-      "tagline": "Korte projecten gemaakt onder tijdsdruk tijdens Game Jams.",
+      "title": "masks-eye",
+      "tagline": "game die binnen 24 uur gemaakt is",
       "thumbnail": "https://picsum.photos/seed/jam/1200/600",
       "projects": [
         {
@@ -234,10 +234,10 @@
           "tagline": "Een snelle twin-stick shooter met vijandige AI.",
           "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
           "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
-          "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "youtube": "https://youtu.be/nFQ2nfHzPDk",
           "screenshots": [
-            "https://picsum.photos/seed/shooter1/1200/800",
-            "https://picsum.photos/seed/shooter2/1200/800"
+            "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5OC5wbmc=/original/GT9yI2.png",
+            "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5OC5wbmc=/original/GT9yI2.png"
           ],
           "tags": ["Unity", "C#", "AI", "Topdown"],
           "projectRole": "Programmer",
@@ -246,18 +246,21 @@
             {
               "subtitle": "Enemy AI State Machine",
               "description": "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
-              "image": "https://placehold.co/600x400?text=Enemy+AI",
+              "image": "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjIwMi5wbmc=/original/7HWe6I.png",
               "code": "void Update()\n{\n    switch(state)\n    {\n        case Idle:\n            LookForPlayer();\n            break;\n\n        case Chase:\n            MoveTowardPlayer();\n            break;\n\n        case Attack:\n            TryShoot();\n            break;\n    }\n}"
             },
             {
               "subtitle": "Projectile System",
               "description": "Hit-detection via raycasts met instant feedback - veel sneller en accurater dan physics-based projectiles. De raycast spawned een hit effect op het impact point en gebruikt layer masks om te bepalen wat geraakt kan worden. Elk schot krijgt een tracer effect die de bullet path visualiseert.",
-              "image": "https://placehold.co/600x400?text=Projectile",
+              "image": "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5Ny5wbmc=/original/FLeNY3.png",
               "code": "void Shoot()\n{\n    Ray ray = new Ray(transform.position, transform.forward);\n\n    if (Physics.Raycast(ray, out var hit, 50f))\n    {\n        Debug.Log($\"Hit {hit.collider.name}\");\n    }\n}"
             }
           ]
+         "itch": "https://tpo-danzig.itch.io/masks-eye"    
         }
+        
       ]
+      
     }
   }
 }
