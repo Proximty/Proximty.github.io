@@ -8,7 +8,7 @@ export const siteConfig = {
   socials: {
     email: "hanna@versluizen.nl",
     github: "https://github.com/Proximty",
-    linkedin: "https://linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/hanna-versluis-6b2778409/?skipRedirect=true",
     itch: "https://proxmity.itch.io/",
   },
 
