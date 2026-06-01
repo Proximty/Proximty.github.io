@@ -1,0 +1,272 @@
+{
+  "projects": [
+    {
+      "id": "buddy-adventures",
+      "title": "Buddy Adventures",
+      "tagline": "Een moderne 3D-remake van de arcade klassieker.",
+      "description": "dit is een moderne 3D platformer met een leuke feature, je gaat samen op avontuur met je buddies, de buddies worden bestuurd door een buddy sysyteem en je collect ze door de levels te spelen sterren te verzamelen en ze dan in de shop te halen. dit shop systeem was ingewikkeld te laten samen werken met het buddy systeem",
+      "thumbnail": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDM3Ny5wbmc=/original/Qc6TIL.png",
+      "youtube": "https://youtu.be/3WapmKwgV-0",
+      "screenshots": [
+        "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
+        "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png"
+      ],
+      "tags": [
+        "Unity",
+        "C#",
+        "3D",
+        "Physics"
+      ],
+      "projectRole": "Gameplay Programmer",
+      "timeline": "2 weken",
+      "mechanics": [
+        {
+          "subtitle": "Buddy systeem",
+          "description": "Dit houd bij of je al een buddy of 1 van dezelfde buddy hebt. Daarnaast zorgt dit ervoor dat je een dubbeljump krijgt als je een buddy hebt gekocht.",
+          "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png",
+          "code": "private void Update()\n{\n    BunnyCheck();\n}\n\npublic void BunnyCheck()\n{\n    if(boughtBuddy[0] == true)\n    {\n        jumpCount = 2;\n    }\n}"
+        },
+        {
+          "subtitle": "Shop systeem",
+          "description": "Een ingebouwd winkel systeem om buddies te kunnen selecteren en kopen. De selectiebox verplaatst zich vloeiend naar de huidige buddy in het grid.",
+          "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
+          "code": "private void Update()\n{\n    if (Ativeshop == false)\n    {\n        selectBorder.transform.position = buddyimage[shopselect].transform.position;\n    }\n}"
+        }
+      ],
+      "git": "https://github.com/fvugt/asteroids-3d",
+      "itch": "https://fvugt.itch.io/asteroids-3d"
+    },
+    {
+      "id": "(not just) golddigers",
+      "title": "(Not just) golddigers",
+      "tagline": "een leuke graaf game voor mobile.",
+      "description": "dit is een leuke mobiele evaring, het publiek was gericht op kinderen tussen 8 en 12 jaar oud, je graaft hier voor fossilen en mineralen en zo leer je wat der allemaal in de grond bestaan.",
+      "thumbnail": "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDM5MjI0My5wbmc=/original/bAas9b.png",
+      "youtube": "https://youtu.be/K93C0auuVJI",
+      "screenshots": [
+        "https://imgur.com/undefined",
+        "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDM5MjI0My5wbmc=/original/bAas9b.png",
+        "https://img.itch.zone/aW1hZ2UvNDA5MjI2MC8yNDQ2NzM4NC5wbmc=/original/%2BUznNu.png"
+      ],
+      "tags": [
+        "Unity",
+        "C#",
+        "Android"
+      ],
+      "projectRole": "pick-up",
+      "timeline": "3 weken",
+      "mechanics": [
+        {
+          "subtitle": "Grab Interaction",
+          "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
+          "image": "https://imgur.com/a/MYFO6YR",
+          "code": "public class pickup : MonoBehaviour { [SerializeField] private gamemanager _Manager; public int Value;   private void Start(){_Manager = GameObject.Find(GameManager).GetComponent<gamemanager>();} public void StoneCount()     public void StoneCount(){Destroy(gameObject); _Manager.StoneCount++; CoinManager.instance.AddCoins(Value);}} "
+        },
+        {
+          "subtitle": "Mining System",
+          "description": "Een geavanceerd mining systeem waarbij spelers met een pikhouweel edelstenen uit de rotsen kunnen slaan. Het systeem berekent de impact force en spawn particles op het raakpunt.",
+          "image": "https://imgur.com/8gTepo6",
+          "code": "void Start(){ if (playOnStart) Play(); _vergrootglas.SetActive(false); _gameTuruorial.SetActive(false); _AudioSource = GameObject.Find(AudioSource).GetComponent<AudioSource>();}"
+        }
+      ],
+      "itch": "https://drathebean.itch.io/not-just-gold-diggers"
+    },
+    {
+      "id": "topdown-shooter",
+      "title": "Topdown Shooter",
+      "tagline": "Een snelle twin-stick shooter met vijandige AI.",
+      "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
+      "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
+      "youtube": "https://www.youtube.com/watch?v=1QZWKmODwXk",
+      "screenshots": [
+        "https://imgur.com/fzaLQHM",
+        "https://imgur.com/s3kYL08"
+      ],
+      "tags": [
+        "Unity",
+        "C#",
+        "AI",
+        "VR"
+      ],
+      "projectRole": "Programmer",
+      "timeline": "8 week",
+      "mechanics": [
+        {
+          "subtitle": "Enemy AI State Machine",
+          "description": "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
+          "image": "https://imgur.com/KQRCdsN",
+          "code": "    {switch (currentState){case BotBase.Startup:Startup();break; case BotBase.Idle:idle();break; case BotBase.Wondering:wondering();break; case BotBase.Chase:DoChase();break; case BotBase.Attack:attack();break; case BotBase.Death:death()break; case BotBase.Off:Debug.LogWarning(Unknown state:  + currentState);break;}"
+        },
+        {
+          "subtitle": "Light robot attack",
+          "description": "dit is 1 van de enemys naast de basis. deze enemy heeft zijn eigen persoonlijkheid",
+          "image": "https://placehold.co/600x400?text=Projectile",
+          "code": "  public override void attack(){ base.attack();if (AttackTimer <= 0){Instantiate(projectile, projectilePosition.position, Quaternion.identity); AudioManager.Instance.audioClips[12].Play(); AttackTimer = 1f;}"
+        }
+      ],
+      "itch": "https://xanoblade404.itch.io/syndrome-fever-dream"
+    },
+    {
+      "id": "Symphony Of Skin",
+      "title": "interactieve Instalatie",
+      "tagline": "Maak Samen muziek. concectie is key!",
+      "description": "deze instalatie zorgt ervoor dat mensen samen lol kunnen maken",
+      "thumbnail": "https://picsum.photos/seed/vrtrain/1200/600",
+      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "screenshots": [
+        "https://imgur.com/undefined",
+        "https://imgur.com/Dx4rvjV"
+      ],
+      "tags": [
+        "VS Code",
+        "Makey Makey",
+        "rahberry PI"
+      ],
+      "projectRole": "XR Developer",
+      "timeline": "8 weken",
+      "mechanics": [
+        {
+          "subtitle": "Makey Makey",
+          "description": "dit is hoe de makey makey samen werkt met de rashberry PI ",
+          "image": "https://imgur.com/Dx4rvjV",
+          "code": "try {if (!File.Exists(ConfigPath)) {Console.WriteLine($[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.);// keep existing defaultsif (mappen.Count == 0) mappen = new() {{ 103, 2000s }, { 108, 2010s }, {105, Anime },{ 106, EDM   }, { 57,  Game }, { 17,  Pop   }, { 103,108, Secret }}; return;}"
+        },
+        {
+          "subtitle": "Rashberry PI",
+          "description": "De rashberry pi zoek hier naar audio apparaten om de muziek af te kunnen spelen en dat alles goed hoorbaar i",
+          "image": "https://imgur.com/5rUAhgz",
+          "code": " if (root.TryGetProperty(devicePath,    out var dp))  devicePath  = dp.GetString()!;if (root.TryGetProperty(musicBasePath, out var mp))  basisPad    = mp.GetString()!;if (root.TryGetProperty(audioDevice,   out var ad))  audioDevice = ad.GetString()!;if (root.TryGetProperty(outputDriver,  out var od))  outputDriver = od.GetString()!;if (root.TryGetProperty(volume,        out var vl))  volume      = vl.GetInt32();if (root.TryGetProperty(loopTracks,    out var lt))  loopTracks  = lt.GetBoolean();if (root.TryGetProperty(debugLogging,  out var dl))  debugLog    = dl.GetBoolean();"
+        }
+      ],
+      "git": "https://github.com/Proximty/Symphony-Of-Skin-",
+      "itch": ""
+    },
+    {
+      "id": "ar-museum-guide",
+      "title": "Hook, Line and Slaughter",
+      "status": "In Development",
+      "tagline": "Een interactieve AR-applicatie voor museum bezoekers.",
+      "description": "De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.\n\nGebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.\n\nDit project introduceerde mij in AR Foundation, image tracking en UI design voor augmented reality waarbij ik leerde werken met verschillende lighting conditions in musea.",
+      "thumbnail": "https://picsum.photos/seed/armuseum/1200/600",
+      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "screenshots": [
+        "https://picsum.photos/seed/arm1/1200/800",
+        "https://picsum.photos/seed/arm2/1200/800"
+      ],
+      "tags": [
+        "Unity",
+        "AR Foundation",
+        "Mobile",
+        "Image Tracking"
+      ],
+      "projectRole": "AR Developer",
+      "timeline": "3 weken",
+      "mechanics": [
+        {
+          "subtitle": "Image Tracking System",
+          "description": "Herkent kunstwerken en plaatst AR content op de juiste posities door gebruik te maken van AR Foundation's image tracking. Wanneer een artwork gedetecteerd wordt, spawned het systeem de bijbehorende content - info panels, 3D modellen of video overlays. De content blijft stabiel geanchored zelfs als de camera beweegt.",
+          "image": "https://placehold.co/600x400?text=Image+Tracking",
+          "code": "void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)\n{\n    foreach (var trackedImage in args.added)\n    {\n        string artworkId = trackedImage.referenceImage.name;\n        SpawnARContent(artworkId, trackedImage.transform);\n    }\n}"
+        },
+        {
+          "subtitle": "Interactive 3D Models",
+          "description": "Gebruikers kunnen 3D modellen roteren en schalen met intuïtive touch gestures - single finger drag roteert, pinch zoom schaalt en two-finger drag verplaatst het model. Sommige modellen zijn animated en kunnen hun functie demonstreren. Custom shaders zorgen dat de modellen natuurlijk blenden met de real world door environment lighting.",
+          "image": "https://placehold.co/600x400?text=3D+Interaction",
+          "code": "void HandleTouchInput()\n{\n    if (Input.touchCount == 2)\n    {\n        Touch t1 = Input.GetTouch(0);\n        Touch t2 = Input.GetTouch(1);\n\n        float pinchDist = Vector2.Distance(t1.position, t2.position);\n        float scale = pinchDist / initialPinchDist;\n\n        model.localScale = initialScale * scale;\n    }\n}"
+        }
+      ],
+      "git": "",
+      "itch": "https://fvugt.itch.io/ar-museum"
+    }
+  ],
+  "categories": {
+    "hobby-projects": {
+      "id": "hobby-projects",
+      "title": "Hobby Projecten",
+      "tagline": "Kleine experimenten en persoonlijke projecten in mijn vrije tijd.",
+      "thumbnail": "https://picsum.photos/seed/hobby/1200/600",
+      "projects": [
+        {
+          "id": "hobby-test-1",
+          "title": "Hobby Experiment",
+          "status": "In Development",
+          "tagline": "Een moderne 3D-remake van de arcade klassieker.",
+          "description": "Dit is een moderne 3D platformer met een leuke feature, je gaat samen op avontuur met je buddies, de buddies worden bestuurd door een buddy sysyteem en je collect ze door de levels te spelen sterren te verzamelen en ze dan in de shop te halen. dit shop systeem was ingewikkeld te laten samen werken met het buddy systeem",
+          "thumbnail": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDM3Ny5wbmc=/original/Qc6TIL.png",
+          "youtube": "https://youtu.be/3WapmKwgV-0",
+          "screenshots": [
+            "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
+            "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png"
+          ],
+          "tags": [
+            "Unity",
+            "C#",
+            "3D",
+            "Physics"
+          ],
+          "projectRole": "Gameplay Programmer",
+          "timeline": "2 weken",
+          "mechanics": [
+            {
+              "subtitle": "Buddy systeem",
+              "description": "Dit houd bij of je al een buddy of 1 van dezelfde buddy hebt. Daarnaast zorgt dit ervoor dat je een dubbeljump krijgt.",
+              "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png",
+              "code": "private void Update()\n{\n    BunnyCheck();\n}\n\npublic void BunnyCheck()\n{\n    if(boughtBuddy[0] == true)\n    {\n        jumpCount = 2;\n    }\n}"
+            },
+            {
+              "subtitle": "Shop",
+              "description": "Een ingebouwd winkel systeem om buddies te kunnen selecteren en kopen. De selectiebox verplaatst zich vloeiend naar de huidige buddy in het grid.",
+              "image": "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDA4NS5wbmc=/original/E19UOs.png",
+              "code": "private void Update()\n{\n    if (Ativeshop == false)\n    {\n        selectBorder.transform.position = buddyimage[shopselect].transform.position;\n    }\n}"
+            }
+          ],
+          "git": "https://github.com/fvugt/asteroids-3d",
+          "itch": "https://fvugt.itch.io/asteroids-3d"
+        }
+      ]
+    },
+    "game-jams": {
+      "id": "game-jams",
+      "title": "masks-eye",
+      "tagline": "game die binnen 24 uur gemaakt is",
+      "thumbnail": "https://picsum.photos/seed/jam/1200/600",
+      "projects": [
+        {
+          "id": "jam-test-1",
+          "title": "24 Hour Game Jam",
+          "tagline": "Een snelle twin-stick shooter met vijandige AI.",
+          "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
+          "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
+          "youtube": "https://youtu.be/nFQ2nfHzPDk",
+          "screenshots": [
+            "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5OC5wbmc=/original/GT9yI2.png",
+            "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5OC5wbmc=/original/GT9yI2.png"
+          ],
+          "tags": [
+            "Unity",
+            "C#",
+            "AI",
+            "Topdown"
+          ],
+          "projectRole": "Programmer",
+          "timeline": "24 uur",
+          "mechanics": [
+            {
+              "subtitle": "Enemy AI State Machine",
+              "description": "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
+              "image": "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjIwMi5wbmc=/original/7HWe6I.png",
+              "code": "void Update()\n{\n    switch(state)\n    {\n        case Idle:\n            LookForPlayer();\n            break;\n\n        case Chase:\n            MoveTowardPlayer();\n            break;\n\n        case Attack:\n            TryShoot();\n            break;\n    }\n}"
+            },
+            {
+              "subtitle": "Projectile System",
+              "description": "Hit-detection via raycasts met instant feedback - veel sneller en accurater dan physics-based projectiles. De raycast spawned een hit effect op het impact point en gebruikt layer masks om te bepalen wat geraakt kan worden. Elk schot krijgt een tracer effect die de bullet path visualiseert.",
+              "image": "https://img.itch.zone/aW1hZ2UvNDI0MTE3OC8yNTI3NjE5Ny5wbmc=/original/FLeNY3.png",
+              "code": "void Shoot()\n{\n    Ray ray = new Ray(transform.position, transform.forward);\n\n    if (Physics.Raycast(ray, out var hit, 50f))\n    {\n        Debug.Log($\"Hit {hit.collider.name}\");\n    }\n}"
+            }
+          ],
+          "itch": "https://tpo-danzig.itch.io/masks-eye"
+        }
+      ]
+    }
+  }
+}
