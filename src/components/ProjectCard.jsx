@@ -69,34 +69,6 @@ export default function ProjectCard({ project }) {
             <span key={tag} className="tag">{tag}</span>
           ))}
         </div>
-
-        {/* Mechanics Preview ("Code Vakken") */}
-        <div className="grid grid-cols-2 gap-2 pt-3 border-t border-zinc-100">
-          {project.mechanics?.slice(0, 2).map((m, idx) => (
-            <div 
-              key={idx} 
-              className="group/code relative bg-zinc-950 rounded-lg p-3 text-[10px] text-zinc-300 font-mono h-24 overflow-hidden border border-zinc-800 transition-colors hover:border-zinc-700"
-            >
-              <div className="flex justify-between items-start mb-1.5 overflow-hidden whitespace-nowrap">
-                <span className="text-zinc-500 font-bold uppercase tracking-tighter text-[9px] truncate">
-                  {m.subtitle}
-                </span>
-                <span className="text-zinc-600 block leading-none">{}</span>
-              </div>
-              <div className="leading-tight opacity-70 group-hover/code:opacity-100 transition-opacity whitespace-pre-wrap break-words line-clamp-4">
-                {m.code}
-              </div>
-              
-              {/* Fake gradient to indicate more code */}
-              <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
-              
-              {/* Floating "code" label */}
-              <div className="absolute bottom-1 right-2 text-[8px] text-zinc-600 uppercase font-black tracking-widest pointer-events-none">
-                C#
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </Link>
   );

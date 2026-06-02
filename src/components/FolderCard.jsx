@@ -67,15 +67,6 @@ export default function FolderCard({ category }) {
             {category.projects.length} {category.projects.length === 1 ? 'project' : 'projecten'}
           </span>
         </div>
-        
-        {/* Fake Mechanics area so layout matches ProjectCard */}
-        <div className="grid grid-cols-1 gap-2 pt-3 border-t border-zinc-100">
-           <div className="group/code relative bg-zinc-950 rounded-lg p-3 text-[10px] text-zinc-300 font-mono h-8 overflow-hidden border border-zinc-800 flex items-center">
-             <span className="text-zinc-500 font-bold uppercase tracking-tighter text-[9px]">
-                Collectie van projecten
-             </span>
-           </div>
-        </div>
       </div>
     </Link>
   );
