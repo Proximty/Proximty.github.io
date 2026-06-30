@@ -173,3 +173,24 @@ body {
 }
 .flower-float-cw  { animation: flower-float-cw  infinite ease-in-out; }
 .flower-float-ccw { animation: flower-float-ccw infinite ease-in-out; }
+
+/* ─── Syntax Highlighter fix (Tailwind v4 preflight reset override) ─── */
+.code-block pre,
+.code-block code {
+  font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
+  white-space: pre !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  tab-size: 2;
+}
+
+.code-block {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.code-block > div {
+  margin: 0 !important;
+  border-radius: 0 !important;
+}

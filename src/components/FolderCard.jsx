@@ -43,17 +43,18 @@ export default function FolderCard({ category }) {
           </span>
         </div>
 
-        {/* Small folder icon badge at the top left to indicate it's a folder, styled consistently with the card */}
+        {/* Category name badge on image */}
         <div className="absolute top-3 left-3 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 text-zinc-300 px-2 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-1.5">
-          <span>📁</span> Map
+          {category.title}
         </div>
       </div>
 
       {/* Body */}
       <div className="p-5">
         <div className="flex items-center gap-2 mb-1">
+          <span>📁</span>
           <h3 className="text-lg font-bold" style={{ color: accentColor }}>
-            {category.title}
+            Map
           </h3>
         </div>
 

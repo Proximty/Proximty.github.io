@@ -60,13 +60,13 @@
           "subtitle": "Grab Interaction",
           "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
           "image": "https://imgur.com/a/MYFO6YR",
-          "code": "public class pickup : MonoBehaviour { [SerializeField] private gamemanager _Manager; public int Value;   private void Start(){_Manager = GameObject.Find(GameManager).GetComponent<gamemanager>();} public void StoneCount()     public void StoneCount(){Destroy(gameObject); _Manager.StoneCount++; CoinManager.instance.AddCoins(Value);}} "
+          "code": "public class pickup : MonoBehaviour\n{\n    [SerializeField] private gamemanager _Manager;\n    public int Value;\n\n    private void Start()\n    {\n        _Manager = GameObject.Find(\"GameManager\").GetComponent<gamemanager>();\n    }\n\n    public void StoneCount()\n    {\n        Destroy(gameObject);\n        _Manager.StoneCount++;\n        CoinManager.instance.AddCoins(Value);\n    }\n}"
         },
         {
           "subtitle": "Mining System",
           "description": "Een geavanceerd mining systeem waarbij spelers met een pikhouweel edelstenen uit de rotsen kunnen slaan. Het systeem berekent de impact force en spawn particles op het raakpunt.",
           "image": "https://imgur.com/8gTepo6",
-          "code": "void Start(){ if (playOnStart) Play(); _vergrootglas.SetActive(false); _gameTuruorial.SetActive(false); _AudioSource = GameObject.Find(AudioSource).GetComponent<AudioSource>();}"
+          "code": "void Start()\n{\n    if (playOnStart) Play();\n    _vergrootglas.SetActive(false);\n    _gameTuruorial.SetActive(false);\n    _AudioSource = GameObject.Find(\"AudioSource\").GetComponent<AudioSource>();\n}"
         }
       ],
       "itch": "https://drathebean.itch.io/not-just-gold-diggers"
@@ -95,13 +95,13 @@
           "subtitle": "Enemy AI State Machine",
           "description": "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
           "image": "https://imgur.com/KQRCdsN",
-          "code": "    {switch (currentState){case BotBase.Startup:Startup();break; case BotBase.Idle:idle();break; case BotBase.Wondering:wondering();break; case BotBase.Chase:DoChase();break; case BotBase.Attack:attack();break; case BotBase.Death:death()break; case BotBase.Off:Debug.LogWarning(Unknown state:  + currentState);break;}"
+          "code": "void Update()\n{\n    switch (currentState)\n    {\n        case BotBase.Startup:  Startup();  break;\n        case BotBase.Idle:     idle();     break;\n        case BotBase.Wondering: wondering(); break;\n        case BotBase.Chase:    DoChase();  break;\n        case BotBase.Attack:   attack();   break;\n        case BotBase.Death:    death();    break;\n        case BotBase.Off:\n            Debug.LogWarning(\"Unknown state: \" + currentState);\n            break;\n    }\n}"
         },
         {
           "subtitle": "Light robot attack",
           "description": "dit is 1 van de enemys naast de basis. deze enemy heeft zijn eigen persoonlijkheid",
           "image": "https://placehold.co/600x400?text=Projectile",
-          "code": "  public override void attack(){ base.attack();if (AttackTimer <= 0){Instantiate(projectile, projectilePosition.position, Quaternion.identity); AudioManager.Instance.audioClips[12].Play(); AttackTimer = 1f;}"
+          "code": "public override void attack()\n{\n    base.attack();\n    if (AttackTimer <= 0)\n    {\n        Instantiate(projectile, projectilePosition.position, Quaternion.identity);\n        AudioManager.Instance.audioClips[12].Play();\n        AttackTimer = 1f;\n    }\n}"
         }
       ],
       "itch": "https://xanoblade404.itch.io/syndrome-fever-dream"
@@ -129,13 +129,13 @@
           "subtitle": "Makey Makey",
           "description": "dit is hoe de makey makey samen werkt met de rashberry PI ",
           "image": "https://imgur.com/Dx4rvjV",
-          "code": "try {if (!File.Exists(ConfigPath)) {Console.WriteLine($[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.);// keep existing defaultsif (mappen.Count == 0) mappen = new() {{ 103, 2000s }, { 108, 2010s }, {105, Anime },{ 106, EDM   }, { 57,  Game }, { 17,  Pop   }, { 103,108, Secret }}; return;}"
+          "code": "try\n{\n    if (!File.Exists(ConfigPath))\n    {\n        Console.WriteLine($\"[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.\");\n        if (mappen.Count == 0)\n            mappen = new()\n            {\n                { 103, \"2000s\" }, { 108, \"2010s\" },\n                { 105, \"Anime\" }, { 106, \"EDM\"   },\n                {  57, \"Game\"  }, {  17, \"Pop\"   },\n                { 103, \"Secret\" }\n            };\n        return;\n    }\n}"
         },
         {
           "subtitle": "Rashberry PI",
           "description": "De rashberry pi zoek hier naar audio apparaten om de muziek af te kunnen spelen en dat alles goed hoorbaar i",
           "image": "https://imgur.com/5rUAhgz",
-          "code": " if (root.TryGetProperty(devicePath,    out var dp))  devicePath  = dp.GetString()!;if (root.TryGetProperty(musicBasePath, out var mp))  basisPad    = mp.GetString()!;if (root.TryGetProperty(audioDevice,   out var ad))  audioDevice = ad.GetString()!;if (root.TryGetProperty(outputDriver,  out var od))  outputDriver = od.GetString()!;if (root.TryGetProperty(volume,        out var vl))  volume      = vl.GetInt32();if (root.TryGetProperty(loopTracks,    out var lt))  loopTracks  = lt.GetBoolean();if (root.TryGetProperty(debugLogging,  out var dl))  debugLog    = dl.GetBoolean();"
+          "code": "if (root.TryGetProperty(\"devicePath\",    out var dp))  devicePath   = dp.GetString()!;\nif (root.TryGetProperty(\"musicBasePath\", out var mp))  basisPad     = mp.GetString()!;\nif (root.TryGetProperty(\"audioDevice\",   out var ad))  audioDevice  = ad.GetString()!;\nif (root.TryGetProperty(\"outputDriver\",  out var od))  outputDriver = od.GetString()!;\nif (root.TryGetProperty(\"volume\",        out var vl))  volume       = vl.GetInt32();\nif (root.TryGetProperty(\"loopTracks\",    out var lt))  loopTracks   = lt.GetBoolean();\nif (root.TryGetProperty(\"debugLogging\",  out var dl))  debugLog     = dl.GetBoolean();"
         }
       ],
       "git": "https://github.com/Proximty/Symphony-Of-Skin-",
@@ -145,7 +145,7 @@
       "id": "ar-museum-guide",
       "title": "Hook, Line and Slaughter",
       "status": "In Development",
-      "tagline": "Een interactieve AR-applicatie voor museum bezoekers.",
+      "tagline": "eeen leuke deck builder.",
       "description": "De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.\n\nGebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.\n\nDit project introduceerde mij in AR Foundation, image tracking en UI design voor augmented reality waarbij ik leerde werken met verschillende lighting conditions in musea.",
       "thumbnail": "https://picsum.photos/seed/armuseum/1200/600",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -155,28 +155,28 @@
       ],
       "tags": [
         "Unity",
-        "AR Foundation",
-        "Mobile",
-        "Image Tracking"
+        "2D",
+        "WebGL",
+        "Deckbuilder"
       ],
       "projectRole": "AR Developer",
       "timeline": "3 weken",
       "mechanics": [
         {
-          "subtitle": "Image Tracking System",
+          "subtitle": "Card Data",
           "description": "Herkent kunstwerken en plaatst AR content op de juiste posities door gebruik te maken van AR Foundation's image tracking. Wanneer een artwork gedetecteerd wordt, spawned het systeem de bijbehorende content - info panels, 3D modellen of video overlays. De content blijft stabiel geanchored zelfs als de camera beweegt.",
           "image": "https://placehold.co/600x400?text=Image+Tracking",
           "code": "void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)\n{\n    foreach (var trackedImage in args.added)\n    {\n        string artworkId = trackedImage.referenceImage.name;\n        SpawnARContent(artworkId, trackedImage.transform);\n    }\n}"
         },
         {
-          "subtitle": "Interactive 3D Models",
-          "description": "Gebruikers kunnen 3D modellen roteren en schalen met intuïtive touch gestures - single finger drag roteert, pinch zoom schaalt en two-finger drag verplaatst het model. Sommige modellen zijn animated en kunnen hun functie demonstreren. Custom shaders zorgen dat de modellen natuurlijk blenden met de real world door environment lighting.",
+          "subtitle": "Status Manager",
+          "description": "deze manager houd alles bij wat er word gedaan aan Statusses die worden gegeven aan de player zowel als de enemy",
           "image": "https://placehold.co/600x400?text=3D+Interaction",
           "code": "void HandleTouchInput()\n{\n    if (Input.touchCount == 2)\n    {\n        Touch t1 = Input.GetTouch(0);\n        Touch t2 = Input.GetTouch(1);\n\n        float pinchDist = Vector2.Distance(t1.position, t2.position);\n        float scale = pinchDist / initialPinchDist;\n\n        model.localScale = initialScale * scale;\n    }\n}"
         }
       ],
       "git": "",
-      "itch": "https://fvugt.itch.io/ar-museum"
+      "itch": "https://itsmohito.itch.io/hook-line-slaughter"
     }
   ],
   "categories": {
@@ -199,10 +199,10 @@
             "https://img.itch.zone/aW1hZ2UvNDQ3MzUwMy8yNjY3MDE4OS5wbmc=/original/kEJDUj.png"
           ],
           "tags": [
-            "Unity",
+            "Android",
             "C#",
-            "3D",
-            "Physics"
+            "Caculator",
+            "API"
           ],
           "projectRole": "Gameplay Programmer",
           "timeline": "2 weken",
@@ -227,13 +227,13 @@
     },
     "game-jams": {
       "id": "game-jams",
-      "title": "masks-eye",
+      "title": "Game Jams",
       "tagline": "game die binnen 24 uur gemaakt is",
       "thumbnail": "https://picsum.photos/seed/jam/1200/600",
       "projects": [
         {
           "id": "jam-test-1",
-          "title": "24 Hour Game Jam",
+          "title": "Masked Eyes",
           "tagline": "Een snelle twin-stick shooter met vijandige AI.",
           "description": "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
           "thumbnail": "https://picsum.photos/seed/shooter/1200/600",
