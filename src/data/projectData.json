@@ -146,7 +146,7 @@
       "title": "Hook, Line and Slaughter",
       "status": "In Development",
       "tagline": "eeen leuke deck builder.",
-      "description": "De AR Museum Guide brengt museumtentoonstellingen tot leven door digitale content over fysieke objecten heen te projecteren en transformeert statische kunstwerken in interactieve verhalen. Een Romeins schilderij komt tot leven met animated characters, bij fossielen verschijnen 3D reconstructies.\n\nGebruikers kunnen hun telefoon op kunstwerken richten om extra informatie, 3D modellen en interactieve elementen te zien die historical context bieden op een engaging manier.\n\nDit project introduceerde mij in AR Foundation, image tracking en UI design voor augmented reality waarbij ik leerde werken met verschillende lighting conditions in musea.",
+      "description": "deze game is gemaakt om je meteen hooked te krijgen, kijk hoe veel vissen jij kan vinden, maak je eigen deck en haal de qouta!",
       "thumbnail": "https://img.itch.zone/aW1nLzI4MjQwMzgyLnBuZw==/original/SZ0WtR.png",
       "cardBg": "https://img.itch.zone/aW1nLzI4MjUzMDEyLnBuZw==/original/aUyh%2Fd.png",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -164,16 +164,16 @@
       "timeline": "3 weken",
       "mechanics": [
         {
-          "subtitle": "Card Data",
+          "subtitle": "Character Gemick",
           "description": "Herkent kunstwerken en plaatst AR content op de juiste posities door gebruik te maken van AR Foundation's image tracking. Wanneer een artwork gedetecteerd wordt, spawned het systeem de bijbehorende content - info panels, 3D modellen of video overlays. De content blijft stabiel geanchored zelfs als de camera beweegt.",
           "image": "https://placehold.co/600x400?text=Image+Tracking",
-          "code": "void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)\n{\n    foreach (var trackedImage in args.added)\n    {\n        string artworkId = trackedImage.referenceImage.name;\n        SpawnARContent(artworkId, trackedImage.transform);\n    }\n}"
+          "code": "  void InitCat()\n{\nlivesRemaining = 9;\ncurrentEvadeChance = 0f;\n\nif (livesContainer != null)\n{\nlivesContainer.gameObject.SetActive(true);\nlifeIcons.Clear();\nforeach (Transform child in livesContainer)\n{\nImage img = child.GetComponent<Image>();\nif (img != null) lifeIcons.Add(img);\n}\n}\n\nUpdateLivesUI()\n;UpdateEvadeUI();\n}\n"
         },
         {
           "subtitle": "Status Manager",
           "description": "deze manager houd alles bij wat er word gedaan aan Statusses die worden gegeven aan de player zowel als de enemy",
           "image": "https://placehold.co/600x400?text=3D+Interaction",
-          "code": " public void ApplyStatusToPlayer(StatusEffect effect, int amount, int duration = 0)\n{\n   int finalAmount = amount;\n  switch\n (effect){if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount; \n  playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n   case StatusEffect.Vulnerable:\n if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount;\n playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n case StatusEffect.Poison: playerPoisonStacks += finalAmount; break;\n  case StatusEffect.Bleed:\n if (finalAmount > 0)\n{\n if (playerBleedStacks > 0)\n{\n int dmg = CalculatePlayerStatusDamage(25);\n  playerHealthBar.TakeDamage(dmg);\n playerBleedStacks = 0;\n}\n else\n{\n  playerBleedStacks += finalAmount;\n}\n}\nbreak;\n case StatusEffect.Frail:\n playerFrailStacks += finalAmount;\n  playerFrailDuration = Mathf.Max(playerFrailDuration, duration);\n  break;\n case StatusEffect.Stun:\n playerStunDuration = Mathf.Max(playerStunDuration, duration > 0 ? duration : finalAmount);\n  break;\n}\n}\n"
+          "code": " public void ApplyStatusToPlayer(StatusEffect effect, int amount, int duration = 0)\n{\n   int finalAmount = amount;\n  switch\n (effect){if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount; \n  playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n   case StatusEffect.Vulnerable:\n if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount;\n playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n case StatusEffect.Poison: playerPoisonStacks += finalAmount; break;\n  case StatusEffect.Bleed:\n if (finalAmount > 0)\n{\n if (playerBleedStacks > 0)\n{\n int dmg = CalculatePlayerStatusDamage(25);\n  playerHealthBar.TakeDamage(dmg);\n playerBleedStacks = 0;\n}\n else\n{\n  playerBleedStacks += finalAmount;\n}\n}\nbreak;\n case StatusEffect.Frail:\n playerFrailStacks += finalAmount;\n  playerFrailDuration = Mathf.Max(playerFrailDuration, duration);\n  break;\n case StatusEffect.Stun:\n playerStunDuration = Mathf.Max(playerStunDuration, duration > 0 ? duration : finalAmount);\n  break;\n}}"
         }
       ],
       "git": "",
