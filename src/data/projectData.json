@@ -57,10 +57,10 @@
       "timeline": "3 weken",
       "mechanics": [
         {
-          "subtitle": "Grab Interaction",
+          "subtitle": "CoinManager",
           "description": "Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw mechanic tracked controller velocity over meerdere frames voor realistische gooibewegingen.",
           "image": "https://imgur.com/a/MYFO6YR",
-          "code": "public class pickup : MonoBehaviour\n{\n    [SerializeField] private gamemanager _Manager;\n    public int Value;\n\n    private void Start()\n    {\n        _Manager = GameObject.Find(\"GameManager\").GetComponent<gamemanager>();\n    }\n\n    public void StoneCount()\n    {\n        Destroy(gameObject);\n        _Manager.StoneCount++;\n        CoinManager.instance.AddCoins(Value);\n    }\n}"
+          "code":"public class CoinManager:MonoBehaviour\n{\n [SerializeField] private TextMeshProUGUI textMeshPro;\npublic int totalCoins;\n public static CoinManager instance;\nvoid Awake()\n{\nif (instance != null && instance != this) { Destroy(gameObject); return; }\ninstance = this;\n}\nprivate void Update()\n{\n_LoadCoins();\n}\npublic void AddCoins(int amount)\n{\ntotalCoins += amount;\n}\npublic void SpendCoins(int amount)\n{\ntotalCoins -= amount;\nif (totalCoins < 0) totalCoins = 0;\n}\nprivate void _LoadCoins()\n{\ntextMeshPro.text = totalCoins.ToString();\n}\n}"
         },
         {
           "subtitle": "Mining System",
