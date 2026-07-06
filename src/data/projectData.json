@@ -167,7 +167,7 @@
           "subtitle": "Character Gemick",
           "description": "Herkent kunstwerken en plaatst AR content op de juiste posities door gebruik te maken van AR Foundation's image tracking. Wanneer een artwork gedetecteerd wordt, spawned het systeem de bijbehorende content - info panels, 3D modellen of video overlays. De content blijft stabiel geanchored zelfs als de camera beweegt.",
           "image": "https://placehold.co/600x400?text=Image+Tracking",
-          "code": "  void InitCat()\n{\nlivesRemaining = 9;\ncurrentEvadeChance = 0f;\n\nif (livesContainer != null)\n{\nlivesContainer.gameObject.SetActive(true);\nlifeIcons.Clear();\nforeach (Transform child in livesContainer)\n{\nImage img = child.GetComponent<Image>();\nif (img != null) lifeIcons.Add(img);\n}\n}\nUpdateLivesUI()\n;UpdateEvadeUI();\n"
+          "code": "  void InitCat()\n{\nlivesRemaining = 9;\ncurrentEvadeChance = 0f;\n\nif (livesContainer != null)\n{\nlivesContainer.gameObject.SetActive(true);\nlifeIcons.Clear();\nforeach (Transform child in livesContainer)\n{\nImage img = child.GetComponent<Image>();\nif (img != null) lifeIcons.Add(img);\n}\n}\n\nUpdateLivesUI();\n  UpdateEvadeUI();\n}\n"
         },
         {
           "subtitle": "Status Manager",
