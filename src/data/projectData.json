@@ -146,7 +146,7 @@
       "title": "Hook, Line and Slaughter",
       "status": "In Development",
       "tagline": "eeen leuke deck builder.",
-      "description": "deze game is gemaakt om je meteen hooked te krijgen, kijk hoe veel vissen jij kan vinden, maak",
+      "description": "deze game is gemaakt om je meteen hooked te krijgen, kijk hoe veel vissen jij kan vinden. ",
       "thumbnail": "https://img.itch.zone/aW1nLzI4MjQwMzgyLnBuZw==/original/SZ0WtR.png",
       "cardBg": "https://img.itch.zone/aW1nLzI4MjUzMDEyLnBuZw==/original/aUyh%2Fd.png",
       "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -173,7 +173,7 @@
           "subtitle": "Status Manager",
           "description": "deze manager houd alles bij wat er word gedaan aan Statusses die worden gegeven aan de player zowel als de enemy",
           "image": "https://placehold.co/600x400?text=3D+Interaction",
-          "code": " public void ApplyStatusToPlayer(StatusEffect effect, int amount, int duration = 0)\n{\n   int finalAmount = amount;\n  switch\n (effect){if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount; \n  playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n   case StatusEffect.Vulnerable:\n if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount;\n playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n case StatusEffect.Frail:\n playerFrailStacks += finalAmount;\n  playerFrailDuration = Mathf.Max(playerFrailDuration, duration);\n  break;\n case StatusEffect.Stun:\n playerStunDuration = Mathf.Max(playerStunDuration, duration > 0 ? duration : finalAmount);\n  break;\n}}"
+          "code": " public void ApplyStatusToPlayer(StatusEffect effect, int amount, int duration = 0)\n{\n   int finalAmount = amount;\n  switch\n (effect){if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount; \n  playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n   case StatusEffect.Vulnerable:\n if (finalAmount > 0)\n{\n  playerWeakenStacks += finalAmount;\n playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);\n}\nbreak;\n case StatusEffect.Poison: playerPoisonStacks += finalAmount; break;\n  case StatusEffect.Bleed:\n if (finalAmount > 0)\n{\n if (playerBleedStacks > 0)\n{\n int dmg = CalculatePlayerStatusDamage(25);\n  playerHealthBar.TakeDamage(dmg);\n playerBleedStacks = 0;\n}\n else\n{\n  playerBleedStacks += finalAmount;\n}\n}\nbreak;\n case StatusEffect.Frail:\n playerFrailStacks += finalAmount;\n  playerFrailDuration = Mathf.Max(playerFrailDuration, duration);\n  break;\n case StatusEffect.Stun:\n playerStunDuration = Mathf.Max(playerStunDuration, duration > 0 ? duration : finalAmount);\n  break;\n}}"
         }
       ],
       "git": "",
