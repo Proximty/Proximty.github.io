@@ -173,7 +173,7 @@
           "subtitle": "Status Manager",
           "description": "deze manager houd alles bij wat er word gedaan aan Statusses die worden gegeven aan de player zowel als de enemy",
           "image": "https://placehold.co/600x400?text=3D+Interaction",
-          "code": "void HandleTouchInput()\n{\n    if (Input.touchCount == 2)\n    {\n        Touch t1 = Input.GetTouch(0);\n        Touch t2 = Input.GetTouch(1);\n\n        float pinchDist = Vector2.Distance(t1.position, t2.position);\n        float scale = pinchDist / initialPinchDist;\n\n        model.localScale = initialScale * scale;\n    }\n}"
+          "code": " public void ApplyStatusToPlayer(StatusEffect effect, int amount, int duration = 0){   int finalAmount = amount;  switch (effect){if (finalAmount > 0){  playerWeakenStacks += finalAmount;   playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);}break;   case StatusEffect.Vulnerable: if (finalAmount > 0){  playerWeakenStacks += finalAmount; playerWeakenDuration = Mathf.Max(playerWeakenDuration, duration);}break; case StatusEffect.Poison: playerPoisonStacks += finalAmount; break;  case StatusEffect.Bleed: if (finalAmount > 0){ if (playerBleedStacks > 0){int dmg = CalculatePlayerStatusDamage(25);  playerHealthBar.TakeDamage(dmg); playerBleedStacks = 0;} else{  playerBleedStacks += finalAmount;}}break case StatusEffect.Frail: playerFrailStacks += finalAmount;  playerFrailDuration = Mathf.Max(playerFrailDuration, duration);  break; case StatusEffect.Stun: playerStunDuration = Mathf.Max(playerStunDuration, duration > 0 ? duration : finalAmount);  break;}}"
         }
       ],
       "git": "",
