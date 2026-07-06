@@ -11,7 +11,7 @@ export default function ProjectCard({ project }) {
       to={`/projects/${project.id}`}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="card block group relative"
+      className={`card block group relative overflow-hidden`}
       style={{
         borderColor: hover ? accentColor : 'var(--bordercolor)',
         boxShadow: hover
@@ -19,6 +19,9 @@ export default function ProjectCard({ project }) {
           : 'var(--shadow-card)',
         transition: 'all 0.35s ease',
         transform: hover ? 'translateY(-6px)' : 'translateY(0)',
+        backgroundImage: project.cardBg ? `url(${project.cardBg})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <InteractiveFlora />
@@ -53,7 +56,7 @@ export default function ProjectCard({ project }) {
       </div>
 
       {/* Body */}
-      <div className="p-5">
+      <div className={`p-5 relative z-10 ${project.cardBg ? 'bg-white/85 backdrop-blur-md h-full' : ''}`}>
         <div className="flex items-center gap-2 mb-1">
           <h3 className="text-lg font-bold" style={{ color: accentColor }}>
             {project.title}

@@ -43,7 +43,20 @@ export default function ProjectPage() {
     };
 
     return (
-        <div>
+        <div className="pb-12">
+            {project.cardBg && (
+                <div 
+                    className="fixed inset-0 pointer-events-none"
+                    style={{
+                        zIndex: -1,
+                        backgroundImage: `url(${project.cardBg})`,
+                        backgroundRepeat: 'repeat',
+                        backgroundPosition: 'center top',
+                        backgroundSize: 'cover',
+                        opacity: 0.85
+                    }}
+                />
+            )}
             <ProjectHeader project={project} />
             <ProjectInfo project={project} />
             <ProjectMechanics project={project} />
