@@ -111,11 +111,12 @@
       "title": "interactieve Instalatie",
       "tagline": "Maak Samen muziek. concectie is key!",
       "description": "deze instalatie zorgt ervoor dat mensen samen lol kunnen maken",
-      "thumbnail": "https://picsum.photos/seed/vrtrain/1200/600",
-      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "thumbnail": "/images/projects/Interactief.jpeg",
+      "youtube": "/images/projects/interactieve-instalatie-video.mp4",
       "screenshots": [
-        "https://imgur.com/undefined",
-        "https://imgur.com/Dx4rvjV"
+        "/images/projects/Interactief.jpeg",
+        "/images/projects/interactieve2.jpeg",
+        "/images/projects/interactieveinstalatie3.jpeg"
       ],
       "tags": [
         "VS Code",
