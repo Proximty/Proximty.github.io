@@ -116,7 +116,7 @@
       "screenshots": [
         "/images/projects/Interactief.jpeg",
         "/images/projects/interactieve2.jpeg",
-        "/images/projects/interactieveinstalatie3.jpeg"
+        "public/images/projects/interactieveinstalatie3.jpeg"
       ],
       "tags": [
         "VS Code",
