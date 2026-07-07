@@ -112,7 +112,7 @@
       "tagline": "Maak Samen muziek. concectie is key!",
       "description": "deze instalatie zorgt ervoor dat mensen samen lol kunnen maken",
       "thumbnail": "/images/projects/Interactief.jpeg",
-      "youtube": "/images/projects/interactieve-instalatie-video.mp4",
+      "youtube": "/images/projects/interactieveinstalatievideo.mp4",
       "screenshots": [
         "/images/projects/Interactief.jpeg",
         "/images/projects/interactieve2.jpeg",
@@ -129,13 +129,13 @@
         {
           "subtitle": "Makey Makey",
           "description": "dit is hoe de makey makey samen werkt met de rashberry PI ",
-          "image": "https://imgur.com/Dx4rvjV",
+          "image": "/images/projects/interactieveinstalatie3.jpeg",
           "code": "try\n{\n    if (!File.Exists(ConfigPath))\n    {\n        Console.WriteLine($\"[CONFIG] Niet gevonden op {ConfigPath}. Gebruik standaardwaarden.\");\n        if (mappen.Count == 0)\n            mappen = new()\n            {\n                { 103, \"2000s\" }, { 108, \"2010s\" },\n                { 105, \"Anime\" }, { 106, \"EDM\"   },\n                {  57, \"Game\"  }, {  17, \"Pop\"   },\n                { 103, \"Secret\" }\n            };\n        return;\n    }\n}"
         },
         {
           "subtitle": "Rashberry PI",
           "description": "De rashberry pi zoek hier naar audio apparaten om de muziek af te kunnen spelen en dat alles goed hoorbaar i",
-          "image": "https://imgur.com/5rUAhgz",
+          "image": "/images/projects/interactieve2.jpeg",
           "code": "if (root.TryGetProperty(\"devicePath\",    out var dp))  devicePath   = dp.GetString()!;\nif (root.TryGetProperty(\"musicBasePath\", out var mp))  basisPad     = mp.GetString()!;\nif (root.TryGetProperty(\"audioDevice\",   out var ad))  audioDevice  = ad.GetString()!;\nif (root.TryGetProperty(\"outputDriver\",  out var od))  outputDriver = od.GetString()!;\nif (root.TryGetProperty(\"volume\",        out var vl))  volume       = vl.GetInt32();\nif (root.TryGetProperty(\"loopTracks\",    out var lt))  loopTracks   = lt.GetBoolean();\nif (root.TryGetProperty(\"debugLogging\",  out var dl))  debugLog     = dl.GetBoolean();"
         }
       ],
